@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/AshwinKumar/Downloads/thelocalnick/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
+        <dex dex="/Users/AshwinKumar/Downloads/thelocalnick/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-25.1.0_e507dc55be6db3c51b153c4c14fdafa1b74339bc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/AshwinKumar/Downloads/thelocalnick/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="e79aa3d9a16f8c9f16377c0608de70a8f31e5d80">
+        <dex dex="/Users/AshwinKumar/Downloads/thelocalnick/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-25.1.0_d1de664c9c3a7611f27b415c25f21de25c98469e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/AshwinKumar/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.1.0/support-annotations-25.1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
+        <dex dex="/Users/AshwinKumar/Downloads/thelocalnick/app/build/intermediates/pre-dexed/debug/support-annotations-25.1.0_d59bdcf8bf65b0ab8995b3c832a3def8c9f92c83.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/AshwinKumar/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-runtime/1.0.6/3562c66f648480d3bd4f76cff722488ced13445b/kotlin-runtime-1.0.6.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="3562c66f648480d3bd4f76cff722488ced13445b">
+        <dex dex="/Users/AshwinKumar/Downloads/thelocalnick/app/build/intermediates/pre-dexed/debug/kotlin-runtime-1.0.6_8b71bf61f1072685ce2eeee0180f74d4a24975a9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/AshwinKumar/Downloads/thelocalnick/app/build/intermediates/exploded-aar/com.daimajia.slider/library/1.1.5/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="08962e03b6a954c65d4944e092879b7f5ee1208d">
+        <dex dex="/Users/AshwinKumar/Downloads/thelocalnick/app/build/intermediates/pre-dexed/debug/com.daimajia.slider-library-1.1.5_03851fe011f9ff4a79a884e99a92653f1f00aacc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/AshwinKumar/Downloads/thelocalnick/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
+        <dex dex="/Users/AshwinKumar/Downloads/thelocalnick/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-25.1.0_06f767bbcbc1b451d5fa3695ff65995e593ff34c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/AshwinKumar/Downloads/thelocalnick/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
+        <dex dex="/Users/AshwinKumar/Downloads/thelocalnick/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-25.1.0_58f20ad9c7e90643fa2547e9821d4f267b18422e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/AshwinKumar/Downloads/thelocalnick/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
+        <dex dex="/Users/AshwinKumar/Downloads/thelocalnick/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-25.1.0_b9c20d2453d238cd06f98479da29ae3843940d0c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/AshwinKumar/Downloads/thelocalnick/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
+        <dex dex="/Users/AshwinKumar/Downloads/thelocalnick/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-25.1.0_7608ba18a890ac912ace0b3940890c4bf0bcb9d8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/AshwinKumar/Downloads/thelocalnick/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="aee64634871d88a419d59eb743c1258a60f19700">
+        <dex dex="/Users/AshwinKumar/Downloads/thelocalnick/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-25.1.0_a8496425fbdfa8fe8b01a3f122da0e477e11d496.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/AshwinKumar/Downloads/thelocalnick/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/AshwinKumar/Downloads/thelocalnick/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-25.1.0_fa571dc5e2f320c08a00c4dfd55224062abcf5a5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/AshwinKumar/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="/Users/AshwinKumar/Downloads/thelocalnick/app/build/intermediates/pre-dexed/debug/library-2.4.0_aafcddc2038112da5aa7d833f22b3256d947c5b7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/AshwinKumar/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.0.6/d19acb6ed49b9c48228c0e5dff8071fce23be4b8/kotlin-stdlib-1.0.6.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="d19acb6ed49b9c48228c0e5dff8071fce23be4b8">
+        <dex dex="/Users/AshwinKumar/Downloads/thelocalnick/app/build/intermediates/pre-dexed/debug/kotlin-stdlib-1.0.6_2b02671562a8240f82c9d334ccdbbf8df57e7174.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/AshwinKumar/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.3.2/d6b7f0093cec6c9faf65dbfd6a6a345d0ed25e27/picasso-2.3.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="d6b7f0093cec6c9faf65dbfd6a6a345d0ed25e27">
+        <dex dex="/Users/AshwinKumar/Downloads/thelocalnick/app/build/intermediates/pre-dexed/debug/picasso-2.3.2_9c26d1ef8e6d01773eba5b0d8e48672542ccd141.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/AshwinKumar/Downloads/thelocalnick/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
+        <dex dex="/Users/AshwinKumar/Downloads/thelocalnick/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-25.1.0_9510ad0e39e5cc564ca8c6d8f10adf78dd431256.jar" />
+    </item>
+
+</items>

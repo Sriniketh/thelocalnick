@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">thelocalnick</string>
+    <string name="get_started">GET STARTED</string>
+    <string name="skip">skip</string>
+    <string name="login_email">Email</string>
+    <string name="login_password">Password</string>
+    <integer-array name="img_id_arr">
+        <item>@drawable/gettingstarted1</item>
+        <item>@drawable/gettingstarted2</item>
+        <item>@drawable/gettingstarted3</item>
+    </integer-array>
+</resources>
