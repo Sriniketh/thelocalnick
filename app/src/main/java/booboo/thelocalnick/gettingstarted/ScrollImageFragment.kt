@@ -18,13 +18,14 @@ import booboo.thelocalnick.R
 
 import booboo.thelocalnick.R.layout.scroll_image_layout
 
-class ScrollImageFragment : Fragment(), BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener {
+public class ScrollImageFragment : Fragment(), BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener {
 
     private var mDemoSlider: SliderLayout? = null
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) : View? {
 
+        var view = inflater?.inflate(scroll_image_layout, container, false) as View
 
-        mDemoSlider = inflater.inflate(scroll_image_layout, container, false).findViewById(R.id.slider) as SliderLayout
+        mDemoSlider = view.findViewById(R.id.slider) as SliderLayout
 
         val file_maps = HashMap<String, Int>()
         file_maps.put("Explore local tours", R.drawable.gettingstarted1)
@@ -52,8 +53,7 @@ class ScrollImageFragment : Fragment(), BaseSliderView.OnSliderClickListener, Vi
         mDemoSlider!!.setCustomAnimation(DescriptionAnimation())
         mDemoSlider!!.setDuration(4000)
         mDemoSlider!!.addOnPageChangeListener(this)
-        return inflater.inflate(scroll_image_layout, container, false)
-
+        return view;
         //return super.onCreateView(inflater, container, savedInstanceState);
     }
 

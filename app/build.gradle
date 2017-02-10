@@ -6,14 +6,20 @@ android {
     buildToolsVersion "24.0.2"
     defaultConfig {
         applicationId "booboo.thelocalnick"
-        minSdkVersion 21
+        minSdkVersion 24
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        aaptOptions.cruncherEnabled = false
-        aaptOptions.useNewCruncher = false
+
     }
+    dataBinding {
+        enabled = true
+    }
+    kapt {
+        generateStubs = true
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -23,6 +29,11 @@ android {
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
+    aaptOptions
+            {
+                cruncherEnabled = false
+            }
+
 }
 
 dependencies {
@@ -37,6 +48,8 @@ dependencies {
     compile 'com.daimajia.slider:library:1.1.5@aar'
     testCompile 'junit:junit:4.12'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    kapt "com.android.databinding:compiler:2.2.0"
+
 }
 repositories {
     mavenCentral()
