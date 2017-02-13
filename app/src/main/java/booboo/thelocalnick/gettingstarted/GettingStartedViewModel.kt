@@ -1,12 +1,10 @@
 package booboo.thelocalnick.gettingstarted
 
-import android.app.Activity
 import android.content.Context
-import android.content.Intent
+import android.support.v7.app.AppCompatActivity
 import android.view.View
-import android.widget.Toast
 import booboo.thelocalnick.R
-import booboo.thelocalnick.signup.LoginFragment
+import booboo.thelocalnick.signin.SignInFragment
 
 /**
  * Created by AshwinKumar on 2/8/17.
@@ -18,8 +16,8 @@ public class GettingStartedViewModel(context: Context) {
         }
         fun onGetStartedClicked(): View.OnClickListener {
             return View.OnClickListener { view ->
-                (context as Activity).getFragmentManager().beginTransaction()
-                        .replace(R.id.image_scroll_fragment, LoginFragment()).commit()
+                (context as AppCompatActivity).getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.image_scroll_fragment, SignInFragment()).commit()
             }
         }
 }
