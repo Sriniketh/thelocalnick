@@ -16,6 +16,6 @@ class SignInFragment : Fragment() {
         var sivm = SignInViewModel(binding) as SignInViewModel;
         binding.sivm = sivm
         return binding.root
-
     }
+
 }

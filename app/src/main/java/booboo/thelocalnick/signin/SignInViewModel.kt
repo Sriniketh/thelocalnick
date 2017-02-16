@@ -2,11 +2,31 @@ package booboo.thelocalnick.signin
 
 
 import android.view.View
+
+import android.app.Activity
+import android.support.v7.app.AppCompatActivity
+import android.text.Editable
+import android.util.Log
+import android.widget.TextView
+import android.widget.Toast
 import booboo.thelocalnick.AmazonCognito.AmazonCognitoHelper
+import booboo.thelocalnick.AmazonCognito.FacebookCognitoHelper
+import booboo.thelocalnick.R
 import booboo.thelocalnick.databinding.FragmentSignInBinding
+import com.amazonaws.auth.AWSCredentialsProvider
+import com.amazonaws.auth.CognitoCachingCredentialsProvider
+import com.amazonaws.auth.CognitoCredentialsProvider
+import com.facebook.CallbackManager
+import com.facebook.FacebookCallback
+import com.facebook.FacebookException
+import com.facebook.login.LoginManager
+import com.facebook.login.LoginResult
+
+
 import io.reactivex.Observer
 import io.reactivex.disposables.Disposable
 import io.reactivex.subjects.PublishSubject
+import java.util.*
 
 
 /**
@@ -52,6 +72,12 @@ class SignInViewModel(binding: FragmentSignInBinding) {
         return View.OnClickListener { view ->
             System.out.println("Clicked SignIn");
             AmazonCognitoHelper().performLogin(this,binding?.emailID?.text.toString(),binding?.etPassword?.text.toString())
+        }
+    }
+
+    fun onFacebookSignInclicked(): View.OnClickListener {
+        return View.OnClickListener { view ->
+            FacebookCognitoHelper(binding).performFbLogin()
         }
     }
 
