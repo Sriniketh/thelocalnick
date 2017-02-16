@@ -1,11 +1,12 @@
 package booboo.thelocalnick
 
+import android.databinding.DataBindingUtil
+import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import booboo.thelocalnick.AmazonCognito.AmazonCognitoHelper
 import booboo.thelocalnick.databinding.ActivityGettingStartedBinding
 import booboo.thelocalnick.gettingstarted.GettingStartedViewModel
-
 import booboo.thelocalnick.gettingstarted.ScrollImageFragment
-import booboo.thelocalnick.signin.SignInViewModel
 import booboo.thelocalnick.signin.SignInFragment
 
 class GettingStartedActivity : AppCompatActivity() {
