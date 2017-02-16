@@ -1,14 +1,12 @@
 package booboo.thelocalnick.AmazonCognito
 
 import android.app.Activity
-import android.content.Intent
+import android.util.Log
 import booboo.thelocalnick.GettingStartedActivity
-import booboo.thelocalnick.databinding.FragmentSignInBinding
 import com.amazonaws.auth.AWSAbstractCognitoIdentityProvider
 import com.amazonaws.auth.CognitoCachingCredentialsProvider
 import com.amazonaws.mobileconnectors.cognito.CognitoSyncManager
 import com.amazonaws.regions.Regions
-import com.facebook.AccessToken
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
 import com.facebook.FacebookException
@@ -26,16 +24,22 @@ class FacebookCognitoHelper(activity: Activity?) {
 
     init {
         callbackManager = (activity as GettingStartedActivity).callbackManager
-        //credentialsProvider = CognitoCachingCredentialsProvider(this, "us-west-2:366db6a1-22aa-4c2b-b5f6-34a75e1d7b20", cognitoRegion)
-        //syncClient = CognitoSyncManager(context, REGION, credentialsProvider)
-
+        credentialsProvider = CognitoCachingCredentialsProvider(activity, "us-west-2:366db6a1-22aa-4c2b-b5f6-34a75e1d7b20", cognitoRegion)
+        syncClient = CognitoSyncManager(activity, cognitoRegion, credentialsProvider)
     }
 
     var fbcallback = object : FacebookCallback<LoginResult> {
 
         override fun onSuccess(loginResult: LoginResult) {
             System.out.println("Login Successful");
-            addLogins("graph.facebook.com", loginResult.accessToken.token)
+            Thread(Runnable {
+                try {
+                    addLogins("graph.facebook.com", loginResult.accessToken.token)
+                } catch (e: Exception) {
+                    Log.w("oauth fail", e)
+                }
+            }).start()
+
             //btnLoginFacebook.setVisibility(View.GONE)
             //GetFbName(loginResult).execute()
             //setFacebookSession(loginResult.getAccessToken())
@@ -60,9 +64,6 @@ class FacebookCognitoHelper(activity: Activity?) {
     }
 
     fun addLogins(providerName: String, token: String) {
-        if (syncClient == null) {
-            throw IllegalStateException("CognitoSyncClientManager not initialized yet")
-        }
 
         var logins: MutableMap<String, String>? = credentialsProvider?.getLogins()
         if (logins == null) {
@@ -70,6 +71,8 @@ class FacebookCognitoHelper(activity: Activity?) {
         }
         logins.put(providerName, token)
         credentialsProvider?.setLogins(logins)
+        credentialsProvider?.refresh();
+        credentialsProvider?.logins
     }
 
 }

@@ -14,7 +14,7 @@ class SignInFragment : Fragment() {
         super.onCreateView(inflater, parent, savedInstanceState)
         var binding:FragmentSignInBinding = FragmentSignInBinding.inflate(inflater, parent, false) as FragmentSignInBinding
         var sivm = SignInViewModel(binding) as SignInViewModel;
-        sivm.setActivityVM(activity)
+        sivm.activity=activity
         binding.sivm = sivm
 
         return binding.root
