@@ -1,6 +1,7 @@
 package booboo.thelocalnick.AmazonCognito
 
 import android.app.Activity
+import android.content.Intent
 import booboo.thelocalnick.GettingStartedActivity
 import booboo.thelocalnick.databinding.FragmentSignInBinding
 import com.amazonaws.auth.AWSAbstractCognitoIdentityProvider
@@ -15,19 +16,19 @@ import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import java.util.*
 
-class FacebookCognitoHelper(binding: FragmentSignInBinding?) {
+class FacebookCognitoHelper(activity: Activity?) {
     var callbackManager: CallbackManager? = null
     var syncClient: CognitoSyncManager? = null
     var credentialsProvider: CognitoCachingCredentialsProvider? = null
     var developerIdentityProvider: AWSAbstractCognitoIdentityProvider? = null
-    var binding: FragmentSignInBinding?
     val cognitoRegion = Regions.DEFAULT_REGION
+    var activity = activity
 
     init {
-        callbackManager = (binding?.root as GettingStartedActivity).getCallbackManager()
-        this.binding = binding
-        credentialsProvider = CognitoCachingCredentialsProvider(binding?.root?.context, "us-west-2:366db6a1-22aa-4c2b-b5f6-34a75e1d7b20", cognitoRegion)
+        callbackManager = (activity as GettingStartedActivity).callbackManager
+        //credentialsProvider = CognitoCachingCredentialsProvider(this, "us-west-2:366db6a1-22aa-4c2b-b5f6-34a75e1d7b20", cognitoRegion)
         //syncClient = CognitoSyncManager(context, REGION, credentialsProvider)
+
     }
 
     var fbcallback = object : FacebookCallback<LoginResult> {
@@ -52,8 +53,9 @@ class FacebookCognitoHelper(binding: FragmentSignInBinding?) {
         }
     }
 
+
     fun performFbLogin() {
-        LoginManager.getInstance().logInWithReadPermissions((binding?.root?.context) as Activity, Arrays.asList("public_profile"))
+        LoginManager.getInstance().logInWithReadPermissions(activity, Arrays.asList("public_profile"))
         LoginManager.getInstance().registerCallback(callbackManager, fbcallback)
     }
 

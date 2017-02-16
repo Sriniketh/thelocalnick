@@ -36,6 +36,7 @@ import java.util.*
 class SignInViewModel(binding: FragmentSignInBinding) {
 
     var binding:FragmentSignInBinding? = null
+    var activity:Activity? = null
     var subject1 = PublishSubject.create<String>()
 
     val ob = object : Observer<String> {
@@ -61,7 +62,6 @@ class SignInViewModel(binding: FragmentSignInBinding) {
         this.binding = binding
     }
 
-
     public fun updateUI(){
         subject1.subscribe(ob)
         binding?.forgotPassword?.text = "HI"
@@ -77,7 +77,7 @@ class SignInViewModel(binding: FragmentSignInBinding) {
 
     fun onFacebookSignInclicked(): View.OnClickListener {
         return View.OnClickListener { view ->
-            FacebookCognitoHelper(binding).performFbLogin()
+            FacebookCognitoHelper(activity).performFbLogin()
         }
     }
 

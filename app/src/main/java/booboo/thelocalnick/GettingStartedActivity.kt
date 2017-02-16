@@ -10,16 +10,16 @@ import booboo.thelocalnick.gettingstarted.GettingStartedViewModel
 import booboo.thelocalnick.gettingstarted.ScrollImageFragment
 import booboo.thelocalnick.signin.SignInFragment
 
-class GettingStartedActivity : AppCompatActivity() {
+open class GettingStartedActivity : AppCompatActivity() {
 
-    var gettingStartedActivity: GettingStartedActivity? = null
+    var callbackManager: CallbackManager? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.activity_getting_started)
 
         AmazonCognitoHelper.init(applicationContext)
-
+        callbackManager=CallbackManager.Factory.create();
         var binding: ActivityGettingStartedBinding = DataBindingUtil.setContentView<ActivityGettingStartedBinding>(this, R.layout.activity_getting_started) as ActivityGettingStartedBinding
         val scrollImageFragment = ScrollImageFragment() as ScrollImageFragment
         val signInFragment = SignInFragment()
@@ -29,11 +29,9 @@ class GettingStartedActivity : AppCompatActivity() {
                 .add(R.id.image_scroll_fragment, signInFragment).commit()
     }
 
-
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-
+        callbackManager?.onActivityResult(requestCode, resultCode, data)
 
     }
 }
