@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 import booboo.thelocalnick.R;
+import booboo.thelocalnick.createaccount.CreateAccountFragment;
 
 /**
  * Created by ishankothari on 2/9/17.
@@ -28,7 +29,9 @@ public class SignInFragment extends Fragment{
         tvCreateAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO - change to the register fragment here
+                getActivity().getSupportFragmentManager().beginTransaction().
+                        replace(((ViewGroup)getView().getParent()).getId(),
+                                new CreateAccountFragment()).commit();
             }
         });
         return rootView;
