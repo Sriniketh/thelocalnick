@@ -8,15 +8,17 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".gettingstarted.OnBoarding"
-            android:screenOrientation="portrait"
-          >
 
+        <activity android:name=".gettingstarted.OnBoarding"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".backgroundcheck.BackgroundCheckActivity"
+            android:theme="@style/NoActionBarTheme">
         </activity>
     </application>
     <!-- if you want to load images from the internet -->

@@ -4,14 +4,95 @@
     <string name="skip">skip</string>
     <string name="login_email">Email</string>
     <string name="login_password">Password</string>
+
     <string name="onboardString1">Local Nick is the best</string>
     <string name="onboardString2">Be a part of our community of traverlers and \nenthusiastic local guides to explore the world.</string>
+
+    <string name="terms_of_use">Lorem ipsum dolor sit amet, qui altera signiferumque te,
+        ne quo debet aliquam. Cu sea tacimates atomorum. Gloriatur complectitur vel te,
+        eum legimus concludaturque in. Modus omnium ne per, et tollit mediocrem sit. Nam
+        et laudem animal forensibus, vix ne alii causae conceptam, eum id quidam commodo
+        aliquando. Et euripidis similique est, dicant appetere an quo. Explicari
+        argumentum ei mel, vocibus splendide sententiae ut nec.\n\n
+
+        Qui saepe tacimates in. Novum affert consulatu vix an. No vix reque oportere,
+        periculis splendide ea duo. Quis tation id vim, clita nemore mandamus eu sea.
+        Congue explicari usu ne, id mutat quaeque deseruisse eam.\n\n
+
+        Id mei cetero gubergren honestatis, vim no prima tritani, est aperiri scriptorem
+        no. Ius facer honestatis vituperatoribus at, possit semper per ei. Eos partem
+        definiebas te, ex mazim erroribus ocurreret qui. Vis in justo eripuit alienum,
+        alii novum te mel. Delicata referrentur qui te, eos eu timeam iracundia.\n\n
+
+        At est nostrud referrentur. Mei et legimus democritum repudiandae. Ea utamur
+        ancillae vel. Ad iusto appetere eam. Soleat definiebas quo id. Vim ne nullam
+        platonem.\n\n
+
+        Mea alia platonem suscipiantur te. Graece prompta ea quo, doming dolorem habemus
+        vis no, ad sit vero prodesset constituto. Sed et posse iudico deterruisset, mollis
+        repudiare et eos. At atqui corpora qui, eam alia vero delenit an, cu ius quaeque
+        perfecto praesent.</string>
     <integer-array name="img_id_arr">
         <item>@drawable/gettingstarted1</item>
         <item>@drawable/gettingstarted2</item>
         <item>@drawable/gettingstarted3</item>
     </integer-array>
 
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="us_states">
+        <item>Select State</item>
+        <item>Alabama</item>
+        <item>Alaska</item>
+        <item>Arizona</item>
+        <item>Arkansas</item>
+        <item>California</item>
+        <item>Colorado</item>
+        <item>Connecticut</item>
+        <item>Delaware</item>
+        <item>Florida</item>
+        <item>Georgia</item>
+        <item>Hawaii</item>
+        <item>Idaho</item>
+        <item>Illinois</item>
+        <item>Indiana</item>
+        <item>Iowa</item>
+        <item>Kansas</item>
+        <item>Kentucky</item>
+        <item>Louisiana</item>
+        <item>Maine</item>
+        <item>Maryland</item>
+        <item>Massachusetts</item>
+        <item>Michigan</item>
+        <item>Minnesota</item>
+        <item>Mississippi</item>
+        <item>Missouri</item>
+        <item>Montana</item>
+        <item>Nebraska</item>
+        <item>Nevada</item>
+        <item>New Hampshire</item>
+        <item>New Jersey</item>
+        <item>New Mexico</item>
+        <item>New York</item>
+        <item>North Carolina</item>
+        <item>North Dakota</item>
+        <item>Ohio</item>
+        <item>Oklahoma</item>
+        <item>Oregon</item>
+        <item>Pennsylvania</item>
+        <item>Rhode Island</item>
+        <item>South Carolina</item>
+        <item>South Dakota</item>
+        <item>Tennessee</item>
+        <item>Texas</item>
+        <item>Utah</item>
+        <item>Vermont</item>
+        <item>Virginia</item>
+        <item>Washington</item>
+        <item>West Virginia</item>
+        <item>Wisconsin</item>
+        <item>Wyoming</item>
+    </string-array>
 </resources>
