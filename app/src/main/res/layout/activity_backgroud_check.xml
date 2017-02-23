@@ -1,20 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundGray"
-    android:weightSum="3"
-    android:orientation="vertical">
-
-    <!-- The primary full-screen view. This can be replaced with whatever view
-         is needed to present your content, e.g. VideoView, SurfaceView,
-         TextureView, etc. -->
+    android:weightSum="4">
+    <!--TODO check the weights for all screen sizes -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorPrimary"
         android:orientation="vertical"
-        android:layout_weight="2"
+        android:layout_weight="3"
+        android:weightSum="25"
         android:gravity="center"
         android:padding="@dimen/activity_horizontal_margin">
         <ImageView
@@ -26,7 +22,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="WELCOME"
+            android:text="BACKGROUND CHECK"
             android:textColor="@color/white"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:gravity="center"
@@ -37,9 +33,9 @@
         android:layout_height="match_parent"
         android:layout_weight="1">
         <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:padding="@dimen/form_padding">
             <EditText
                 android:layout_width="match_parent"
@@ -47,47 +43,69 @@
                 android:maxLines="1"
                 android:background="@drawable/border"
                 android:padding="@dimen/edit_text_padding"
-                android:hint="Email"
+                android:hint="First name"
                 android:textColorHint="@color/textHint"
                 android:layout_marginBottom="@dimen/form_vertical_space"/>
             <EditText
-                android:id="@+id/etPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLines="1"
                 android:background="@drawable/border"
                 android:padding="@dimen/edit_text_padding"
-                android:hint="Password"
+                android:hint="Middle name (optional)"
+                android:textColorHint="@color/textHint"
+                android:layout_marginBottom="@dimen/form_vertical_space"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:background="@drawable/border"
+                android:padding="@dimen/edit_text_padding"
+                android:hint="Last name"
+                android:textColorHint="@color/textHint"
+                android:layout_marginBottom="@dimen/form_vertical_space"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:background="@drawable/border"
+                android:padding="@dimen/edit_text_padding"
+                android:hint="Date of birth"
+                android:textColorHint="@color/textHint"
+                android:inputType="date"
+                android:layout_marginBottom="@dimen/form_vertical_space"/>
+            <!--TODO add the text formatting for SSN (with hypens)-->
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:background="@drawable/border"
+                android:padding="@dimen/edit_text_padding"
+                android:inputType="number"
+                android:hint="Social security number"
+                android:textColorHint="@color/textHint"
+                android:layout_marginBottom="@dimen/form_vertical_space"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:background="@drawable/border"
+                android:padding="@dimen/edit_text_padding"
+                android:hint="Driver licence state"
                 android:textColorHint="@color/textHint"
                 android:layout_marginBottom="16dp"/>
+            <Spinner
+                android:id="@+id/spinnerStates"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
+            </Spinner>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="SIGN IN"
+                android:text="SUBMIT"
                 android:textColor="@color/white"
-                android:background="@color/colorAccent"
-                android:layout_marginBottom="20dp"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Forgot Password?"
-                android:gravity="center"
-                android:layout_marginBottom="16dp"/>
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="SIGN IN WITH FACEBOOK"
-                android:textColor="@color/white"
-                android:background="@color/facebook"
-                android:layout_marginBottom="16dp"/>
-            <TextView
-                android:id="@+id/tvCreateAccount"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Don't have an account?"
-                android:gravity="center"
-                android:textStyle="bold"
-                android:layout_marginBottom="16dp"/>
+                android:background="@color/colorAccent"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
