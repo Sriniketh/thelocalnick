@@ -4,6 +4,10 @@
     <string name="skip">skip</string>
     <string name="login_email">Email</string>
     <string name="login_password">Password</string>
+    <string name="onboardString1">Local Nick is the best</string>
+    <string name="onboardString2">Be a part of our community of traverlers and \nenthusiastic local guides to explore the world.</string>
+
+
     <string name="terms_of_use">Lorem ipsum dolor sit amet, qui altera signiferumque te,
         ne quo debet aliquam. Cu sea tacimates atomorum. Gloriatur complectitur vel te,
         eum legimus concludaturque in. Modus omnium ne per, et tollit mediocrem sit. Nam
@@ -28,11 +32,14 @@
         vis no, ad sit vero prodesset constituto. Sed et posse iudico deterruisset, mollis
         repudiare et eos. At atqui corpora qui, eam alia vero delenit an, cu ius quaeque
         perfecto praesent.</string>
+
+
     <integer-array name="img_id_arr">
         <item>@drawable/gettingstarted1</item>
         <item>@drawable/gettingstarted2</item>
         <item>@drawable/gettingstarted3</item>
     </integer-array>
+
     <string-array name="us_states">
         <item>Select State</item>
         <item>Alabama</item>
@@ -86,4 +93,10 @@
         <item>Wisconsin</item>
         <item>Wyoming</item>
     </string-array>
+
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
