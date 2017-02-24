@@ -1,12 +1,7 @@
 package booboo.thelocalnick.gettingstarted;
 
-import android.databinding.DataBindingUtil;
-import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Toast;
-
-import booboo.thelocalnick.R;
-import booboo.thelocalnick.databinding.ActivityGettingStartedBinding;
 
 /**
  * Created by AshwinKumar on 2/8/17.
