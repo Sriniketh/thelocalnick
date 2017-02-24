@@ -2,7 +2,7 @@ package booboo.thelocalnick.AmazonCognito
 
 import android.app.Activity
 import android.util.Log
-import booboo.thelocalnick.GettingStartedActivity
+import booboo.thelocalnick.gettingstarted.OnBoarding
 import com.amazonaws.auth.AWSAbstractCognitoIdentityProvider
 import com.amazonaws.auth.CognitoCachingCredentialsProvider
 import com.amazonaws.mobileconnectors.cognito.CognitoSyncManager
@@ -23,7 +23,7 @@ class FacebookCognitoHelper(activity: Activity?) {
     var activity = activity
 
     init {
-        callbackManager = (activity as GettingStartedActivity).callbackManager
+        callbackManager = (activity as OnBoarding).callbackManager
         credentialsProvider = CognitoCachingCredentialsProvider(activity, "us-west-2:366db6a1-22aa-4c2b-b5f6-34a75e1d7b20", cognitoRegion)
         syncClient = CognitoSyncManager(activity, cognitoRegion, credentialsProvider)
     }

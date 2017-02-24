@@ -49,6 +49,7 @@
                 android:orientation="vertical"
                 android:padding="@dimen/form_padding">
                 <EditText
+                    android:id="@+id/emailID"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:maxLines="1"
@@ -66,6 +67,7 @@
                     android:padding="@dimen/edit_text_padding"
                     android:hint="Password"
                     android:textColorHint="@color/textHint"
+                    android:inputType="textPassword"
                     android:layout_marginBottom="16dp"/>
                 <Button
                     android:layout_width="match_parent"
@@ -73,7 +75,8 @@
                     android:text="SIGN IN"
                     android:textColor="@color/white"
                     android:background="@color/colorAccent"
-                    android:layout_marginBottom="20dp"/>
+                    android:layout_marginBottom="20dp"
+                    android:onClick="@{sivm.onSignInclicked()}"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -87,11 +90,8 @@
                     android:textColor="@color/white"
                     android:background="@color/facebook"
                     android:layout_marginBottom="16dp"
-<<<<<<< HEAD
-                    android:onClick="@{sivm.onSignInclicked()}"/>
-=======
                     android:onClick="@{sivm.onFacebookSignInclicked()}"/>
->>>>>>> for srini to add logins
+
                 <TextView
                     android:id="@+id/tvCreateAccount"
                     android:layout_width="match_parent"
