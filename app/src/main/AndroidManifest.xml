@@ -23,6 +23,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".tourListing.tourlistingDrawer"
+            android:screenOrientation="portrait"
+            >
+
+        </activity>
         <activity
             android:name=".backgroundcheck.BackgroundCheckActivity"
             android:theme="@style/NoActionBarTheme"></activity>
