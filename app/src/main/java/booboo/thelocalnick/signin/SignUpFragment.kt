@@ -1,27 +1,21 @@
 package booboo.thelocalnick.signin
 
 
-import android.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.text.method.PasswordTransformationMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.TextView
-import booboo.thelocalnick.R
 import booboo.thelocalnick.databinding.FragmentCreateAccountBinding
-import booboo.thelocalnick.databinding.FragmentSignInBinding
+import booboo.thelocalnick.utils.BaseFragment
 
-class SignUpFragment : Fragment() {
-
+class SignUpFragment : BaseFragment() {
+    var binding:FragmentCreateAccountBinding? = null
     override fun onCreateView(inflater: LayoutInflater?, parent: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, parent, savedInstanceState)
-        var binding:FragmentCreateAccountBinding = FragmentCreateAccountBinding.inflate(inflater, parent, false) as FragmentCreateAccountBinding
-        var suvm = SignUpViewModel(binding) as SignUpViewModel;
-        binding.suvm = suvm
-        return binding.root
-
+        binding= FragmentCreateAccountBinding.inflate(inflater, parent, false) as FragmentCreateAccountBinding
+        var suvm = SignUpViewModel() as SignUpViewModel;
+        binding?.suvm = suvm
+        suvm.signUpFragment = this
+        return binding?.root
     }
 }

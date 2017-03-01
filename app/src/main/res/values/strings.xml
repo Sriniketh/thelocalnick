@@ -96,4 +96,12 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="facebook_app_id">718277081677103</string>
     <string name="fb_login_protocol_scheme">fb718277081677103</string>
+    <string name="username_password_empty">Username or password cannot be empty</string>
+    <string name="confirmation_code_empty">Confirmation code cannot be empty</string>
+    <string name="error_header">Error</string>
+    <string name="sign_in_failed">Sign-in failed!</string>
+    <string name="sign_up_failed">Sign-up failed!</string>
+    <string name="preference_file">localnickpref</string>
+    <string name="app_opened_first_time">app_opened_first_time</string>
+    <string name="signing_up">Signing up!!!</string>
 </resources>
