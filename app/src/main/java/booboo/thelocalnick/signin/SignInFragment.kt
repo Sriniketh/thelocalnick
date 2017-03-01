@@ -2,22 +2,20 @@ package booboo.thelocalnick.signin
 
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import booboo.thelocalnick.databinding.FragmentSignInBinding
+import booboo.thelocalnick.utils.BaseFragment
 
-class SignInFragment : Fragment() {
-
+class SignInFragment : BaseFragment() {
+    var binding:FragmentSignInBinding? = null
     override fun onCreateView(inflater: LayoutInflater?, parent: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, parent, savedInstanceState)
-        var binding:FragmentSignInBinding = FragmentSignInBinding.inflate(inflater, parent, false) as FragmentSignInBinding
-        var sivm = SignInViewModel(binding) as SignInViewModel;
-        sivm.activity=activity
-        binding.sivm = sivm
-
-        return binding.root
+        binding = FragmentSignInBinding.inflate(inflater, parent, false)
+        var sivm = SignInViewModel()
+        sivm.signInFragment = this
+        binding?.sivm = sivm
+        return binding?.root
     }
-
 }

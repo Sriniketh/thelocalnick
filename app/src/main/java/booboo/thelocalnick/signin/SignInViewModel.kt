@@ -1,68 +1,46 @@
 package booboo.thelocalnick.signin
 
 
-import android.app.Activity
+import android.databinding.BaseObservable
 import android.view.View
 import booboo.thelocalnick.AmazonCognito.AmazonCognitoHelper
 import booboo.thelocalnick.AmazonCognito.FacebookCognitoHelper
-import booboo.thelocalnick.databinding.FragmentSignInBinding
-import io.reactivex.Observer
-import io.reactivex.disposables.Disposable
-import io.reactivex.subjects.PublishSubject
+import booboo.thelocalnick.R
 
+class SignInViewModel():BaseObservable() {
 
-/**
- * Created by AshwinKumar on 2/13/17.
- */
-
-class SignInViewModel(binding: FragmentSignInBinding) {
-
-    var binding:FragmentSignInBinding? = null
-    var activity:Activity? = null
-    var subject1 = PublishSubject.create<String>()
-
-    val ob = object : Observer<String> {
-
-        override fun onSubscribe(d: Disposable) {
-
-        }
-
-        override fun onNext(value: String?) {
-
-        }
-
-        override fun onError(e: Throwable) {
-
-        }
-
-        override fun onComplete() {
-
-        }
-    }
-
-    init {
-        this.binding = binding
-    }
-
-    public fun updateUI(){
-        subject1.subscribe(ob)
-        //binding?.forgotPassword?.text = "HI"
-        subject1.onNext("Fuck you")
-    }
+    var signInFragment:SignInFragment? = null
 
     fun onSignInclicked(): View.OnClickListener {
         return View.OnClickListener { view ->
-            System.out.println("Clicked SignIn");
-            AmazonCognitoHelper().performLogin(this,binding?.emailID?.text.toString(),binding?.etPassword?.text.toString())
+            validateInput()
+        }
+    }
+
+    fun validateInput(){
+        if((signInFragment?.binding?.emailID?.text==null)||(signInFragment?.binding?.etPassword?.text==null)||signInFragment?.binding?.emailID?.text.toString()==""||signInFragment?.binding?.etPassword?.text.toString()=="") {
+            signInFragment?.showDialogMessage(signInFragment?.getString(R.string.sign_in_failed),signInFragment?.getString(R.string.username_password_empty))
+        }
+        else {
+            AmazonCognitoHelper.getAppHelper().performLogin(this)
         }
     }
 
     fun onFacebookSignInclicked(): View.OnClickListener {
         return View.OnClickListener { view ->
-            FacebookCognitoHelper(activity).performFbLogin()
+            FacebookCognitoHelper(signInFragment?.activity).performFbLogin()
         }
     }
 
+    fun onCreateAccountclicked(): View.OnClickListener {
+        return View.OnClickListener { view ->
+            SignUpFragment().show(signInFragment?.activity?.fragmentManager)
+        }
+    }
+
+    fun showConfirmationCodePage(){
+        ConfirmEmailFragment().show(signInFragment?.activity?.fragmentManager)
+    }
 
 }
 

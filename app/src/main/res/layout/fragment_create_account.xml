@@ -57,6 +57,7 @@
                     android:background="@color/facebook"
                     android:layout_marginBottom="20dp"/>
                 <EditText
+                    android:id="@+id/name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:maxLines="1"
@@ -66,6 +67,7 @@
                     android:textColorHint="@color/textHint"
                     android:layout_marginBottom="@dimen/form_vertical_space"/>
                 <EditText
+                    android:id="@+id/sign_up_emailID"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:maxLines="1"
@@ -75,6 +77,7 @@
                     android:textColorHint="@color/textHint"
                     android:layout_marginBottom="@dimen/form_vertical_space"/>
                 <EditText
+                    android:id="@+id/sign_up_phonenumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:maxLines="1"
@@ -85,7 +88,7 @@
                     android:textColorHint="@color/textHint"
                     android:layout_marginBottom="@dimen/form_vertical_space"/>
                 <EditText
-                    android:id="@+id/etPassword"
+                    android:id="@+id/sign_up_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:maxLines="1"
@@ -95,7 +98,7 @@
                     android:textColorHint="@color/textHint"
                     android:layout_marginBottom="@dimen/form_vertical_space"/>
                 <EditText
-                    android:id="@+id/etConfirmPassword"
+                    android:id="@+id/signup_confirm_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:maxLines="1"

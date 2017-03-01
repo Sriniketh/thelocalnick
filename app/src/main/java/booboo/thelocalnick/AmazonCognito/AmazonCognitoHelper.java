@@ -1,10 +1,11 @@
 package booboo.thelocalnick.AmazonCognito;
 import android.content.Context;
 import android.util.Log;
-import android.widget.TextView;
 
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoDevice;
+import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoUser;
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoUserAttributes;
+import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoUserCodeDeliveryDetails;
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoUserDetails;
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoUserPool;
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoUserSession;
@@ -12,8 +13,10 @@ import com.amazonaws.mobileconnectors.cognitoidentityprovider.continuations.Auth
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.continuations.AuthenticationDetails;
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.continuations.ChallengeContinuation;
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.continuations.MultiFactorAuthenticationContinuation;
-import com.amazonaws.mobileconnectors.cognitoidentityprovider.continuations.NewPasswordContinuation;
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.handlers.AuthenticationHandler;
+import com.amazonaws.mobileconnectors.cognitoidentityprovider.handlers.GenericHandler;
+import com.amazonaws.mobileconnectors.cognitoidentityprovider.handlers.SignUpHandler;
+import com.amazonaws.mobileconnectors.cognitoidentityprovider.handlers.VerificationHandler;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.cognitoidentityprovider.model.AttributeType;
 
@@ -24,11 +27,11 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
+import booboo.thelocalnick.R;
+import booboo.thelocalnick.databinding.FragmentCreateAccountBinding;
+import booboo.thelocalnick.signin.ConfirmEmailViewModel;
 import booboo.thelocalnick.signin.SignInViewModel;
-
-/**
- * Created by AshwinKumar on 2/10/17.
- */
+import booboo.thelocalnick.signin.SignUpViewModel;
 
 public class AmazonCognitoHelper {
 
@@ -37,9 +40,10 @@ public class AmazonCognitoHelper {
     private static CognitoUserAttributes attributesChanged;
     private static List<AttributeType> attributesToDelete;
     private static CognitoDevice newDevice;
-
+    CognitoUserAttributes userAttributes = new CognitoUserAttributes();
     private static  int itemCount;
-
+    private static Map<String, String> signUpFieldsC2O;
+    private static Map<String, String> signUpFieldsO2C;
     private static int trustedDevicesCount;
     private static List<CognitoDevice> deviceDetails;
     private static CognitoDevice thisDevice;
@@ -53,6 +57,9 @@ public class AmazonCognitoHelper {
     private String TAG = "AMAZON COGNITO HELPER";
     private String username;
     private String password;
+    SignInViewModel signInViewModel;
+    SignUpViewModel signUpViewModel;
+    ConfirmEmailViewModel confirmEmailViewModel;
 
     /**
      * Add your pool id here
@@ -96,57 +103,86 @@ public class AmazonCognitoHelper {
             Log.e("AWS", "Auth Success");
             AmazonCognitoHelper.setCurrSession(cognitoUserSession);
             AmazonCognitoHelper.newDevice(device);
-            //closeWaitDialog();
-            //launchUser();
         }
 
         @Override
         public void getAuthenticationDetails(AuthenticationContinuation authenticationContinuation, String username) {
-            //closeWaitDialog();
             Locale.setDefault(Locale.US);
             getUserAuthentication(authenticationContinuation);
         }
 
         @Override
         public void getMFACode(MultiFactorAuthenticationContinuation multiFactorAuthenticationContinuation) {
-            //closeWaitDialog();
-            //mfaAuth(multiFactorAuthenticationContinuation);
         }
 
         @Override
         public void onFailure(Exception e) {
-            System.out.println("wrong password");
-            //closeWaitDialog();
-            //TextView label = (TextView) findViewById(R.id.textViewUserIdMessage);
-            //label.setText("Sign-in failed");
-            //inPassword.setBackground(getDrawable(R.drawable.text_border_error));
-
-            //label = (TextView) findViewById(R.id.textViewUserIdMessage);
-            //label.setText("Sign-in failed");
-            //inUsername.setBackground(getDrawable(R.drawable.text_border_error));
-
-            //showDialogMessage("Sign-in failed", AppHelper.formatException(e));
+            if(e.getClass().getName().equalsIgnoreCase("com.amazonaws.services.cognitoidentityprovider.model.UserNotConfirmedException")){
+                signInViewModel.showConfirmationCodePage();
+            }
+            else {
+                signInViewModel.getSignInFragment().showDialogMessage("",formatException(e));
+            }
         }
 
         @Override
         public void authenticationChallenge(ChallengeContinuation continuation) {
-            /**
-             * For Custom authentication challenge, implement your logic to present challenge to the
-             * user and pass the user's responses to the continuation.
-             */
             if ("NEW_PASSWORD_REQUIRED".equals(continuation.getChallengeName())) {
-                // This is the first sign-in attempt for an admin created user
-//                newPasswordContinuation = (NewPasswordContinuation) continuation;
-//                AppHelper.setUserAttributeForDisplayFirstLogIn(newPasswordContinuation.getCurrentUserAttributes(),
-//                        newPasswordContinuation.getRequiredAttributes());
-//                closeWaitDialog();
-//                firstTimeSignIn();
+
             }
         }
     };
 
+    SignUpHandler signUpHandler = new SignUpHandler() {
+        @Override
+        public void onSuccess(CognitoUser user, boolean signUpConfirmationState,
+                              CognitoUserCodeDeliveryDetails cognitoUserCodeDeliveryDetails) {
+            signUpViewModel.getSignUpFragment().closeWaitDialog();
+            Boolean regState = signUpConfirmationState;
+            if (signUpConfirmationState) {
+                // User is already confirmed
+                signUpViewModel.showConfirmationCodePage();
+            }
+            else {
+                // User is not confirmed
+                //confirmSignUp(cognitoUserCodeDeliveryDetails);
+                signUpViewModel.showConfirmationCodePage();
+            }
+        }
+        public void onFailure(Exception exception) {
+            signUpViewModel.getSignUpFragment().closeWaitDialog();
+            signUpViewModel.getSignUpFragment().showDialogMessage("",formatException(exception));
+            signUpViewModel.showConfirmationCodePage();
+        }
+    };
+
+    GenericHandler confHandler = new GenericHandler() {
+        @Override
+        public void onSuccess() {
+            //Move to homepage
+            //TO-DO
+            confirmEmailViewModel.getConfirmEmailFragment().closeWaitDialog();
+        }
+
+        @Override
+        public void onFailure(Exception exception) {
+            confirmEmailViewModel.getConfirmEmailFragment().closeWaitDialog();
+        }
+    };
+
+    VerificationHandler resendConfCodeHandler = new VerificationHandler() {
+        @Override
+        public void onSuccess(CognitoUserCodeDeliveryDetails cognitoUserCodeDeliveryDetails) {
+            confirmEmailViewModel.getConfirmEmailFragment().showDialogMessage("Confirmation code sent.","Code sent to "+cognitoUserCodeDeliveryDetails.getDestination()+" via "+cognitoUserCodeDeliveryDetails.getDeliveryMedium()+".");
+        }
+
+        @Override
+        public void onFailure(Exception exception) {
+            confirmEmailViewModel.getConfirmEmailFragment().showDialogMessage("Confirmation code request has failed", formatException(exception));
+        }
+    };
+
     public static void init(Context context) {
-        //setData();
 
         if (appHelper != null && userPool != null) {
             return;
@@ -157,18 +193,8 @@ public class AmazonCognitoHelper {
         }
 
         if (userPool == null) {
-
             // Create a user pool with default ClientConfiguration
             userPool = new CognitoUserPool(context, userPoolId, clientId, clientSecret, cognitoRegion);
-
-            // This will also work
-            /*
-            ClientConfiguration clientConfiguration = new ClientConfiguration();
-            AmazonCognitoIdentityProvider cipClient = new AmazonCognitoIdentityProviderClient(new AnonymousAWSCredentials(), clientConfiguration);
-            cipClient.setRegion(Region.getRegion(cognitoRegion));
-            userPool = new CognitoUserPool(context, userPoolId, clientId, clientSecret, cipClient);
-            */
-
         }
 
         phoneVerified = false;
@@ -181,29 +207,67 @@ public class AmazonCognitoHelper {
 
         thisDevice = null;
         thisDeviceTrustState = false;
+
+        signUpFieldsC2O = new HashMap<String, String>();
+        signUpFieldsC2O.put("name", "name");
+        signUpFieldsC2O.put("Family name", "family_name");
+        signUpFieldsC2O.put("Nick name", "nickname");
+        signUpFieldsC2O.put("Phone number", "phone_number");
+        signUpFieldsC2O.put("Phone number verified", "phone_number_verified");
+        signUpFieldsC2O.put("Email verified", "email_verified");
+        signUpFieldsC2O.put("Email","email");
+        signUpFieldsC2O.put("Middle name","middle_name");
+        signUpFieldsO2C = new HashMap<String, String>();
+        signUpFieldsO2C.put("name", "name");
+        signUpFieldsO2C.put("family_name", "Family name");
+        signUpFieldsO2C.put("nickname", "Nick name");
+        signUpFieldsO2C.put("phone_number", "Phone number");
+        signUpFieldsO2C.put("phone_number_verified", "Phone number verified");
+        signUpFieldsO2C.put("email_verified", "Email verified");
+        signUpFieldsO2C.put("email", "Email");
+        signUpFieldsO2C.put("middle_name", "Middle name");
     }
 
-    public void performLogin(SignInViewModel signInViewModel,String userName,String password) {
-        this.username = userName;
-        this.password = password;
-
-        AmazonCognitoHelper.userPool.getUser(userName).getSessionInBackground(authenticationHandler);
+    public void performLogin(SignInViewModel signInViewModel) {
+        this.signInViewModel = signInViewModel;
+        this.username = signInViewModel.getSignInFragment().getBinding().emailID.getText().toString();
+        this.password = signInViewModel.getSignInFragment().getBinding().etPassword.getText().toString();
+        AmazonCognitoHelper.userPool.getUser(username).getSessionInBackground(authenticationHandler);
     }
+
+    public void performSignUp(SignUpViewModel signUpViewModel) {
+        this.signUpViewModel = signUpViewModel;
+        FragmentCreateAccountBinding binding = signUpViewModel.getSignUpFragment().getBinding();
+        this.username = binding.signUpEmailID.getText().toString();
+        this.password = binding.signUpPassword.getText().toString();
+        userAttributes.addAttribute(signUpFieldsC2O.get("name"),binding.name.getText().toString());
+        userAttributes.addAttribute(signUpFieldsC2O.get("Phone number"),binding.signUpPhonenumber.getText().toString());
+        userAttributes.addAttribute(signUpFieldsC2O.get("Email"),username);
+        signUpViewModel.getSignUpFragment().showWaitDialog(signUpViewModel.getSignUpFragment().getString(R.string.signing_up));
+        getPool().signUpInBackground(username, password, userAttributes, null, signUpHandler);
+    }
+
+    public void performConfirmation(ConfirmEmailViewModel confirmEmailViewModel){
+        this.confirmEmailViewModel = confirmEmailViewModel;
+        String confirmCode = confirmEmailViewModel.getConfirmEmailFragment().getBinding().etConfirmationCode.getText().toString();
+        confirmEmailViewModel.getConfirmEmailFragment().showWaitDialog(confirmEmailViewModel.getConfirmEmailFragment().getString(R.string.signing_up));
+        getPool().getUser(username).confirmSignUpInBackground(confirmCode, true, confHandler);
+    }
+
+    public void performResend(ConfirmEmailViewModel confirmEmailViewModel){
+        this.confirmEmailViewModel = confirmEmailViewModel;
+        getPool().getUser(username).resendConfirmationCodeInBackground(resendConfCodeHandler);
+    }
+
 
     private void getUserAuthentication(AuthenticationContinuation continuation) {
 
         if(this.password == null) {
             if(password == null) {
-//                TextView label = (TextView) findViewById(R.id.textViewUserPasswordMessage);
-//                label.setText(inPassword.getHint()+" enter password");
-//                inPassword.setBackground(getDrawable(R.drawable.text_border_error));
                 return;
             }
 
             if(password.length() < 1) {
-//                TextView label = (TextView) findViewById(R.id.textViewUserPasswordMessage);
-//                label.setText(inPassword.getHint()+" enter password");
-//                inPassword.setBackground(getDrawable(R.drawable.text_border_error));
                 return;
             }
         }
@@ -237,5 +301,8 @@ public class AmazonCognitoHelper {
         }
 
         return  formattedString;
+    }
+    public static AmazonCognitoHelper getAppHelper(){
+        return appHelper;
     }
 }
