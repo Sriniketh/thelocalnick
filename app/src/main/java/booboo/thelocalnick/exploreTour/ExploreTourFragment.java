@@ -15,6 +15,8 @@ import booboo.thelocalnick.R;
  */
 
 public class ExploreTourFragment extends AppCompatActivity {
+    //TODO convert to fragment once the other team finishes the home page and this fragment can be linked to
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +53,4 @@ public class ExploreTourFragment extends AppCompatActivity {
 
         return rootView;
     }*/
-
-
 }
