@@ -92,6 +92,18 @@
         <item>Wisconsin</item>
         <item>Wyoming</item>
     </string-array>
+
+    <string-array name="drawerEntries">
+        <item>Create Tour</item>
+        <item>Explore</item>
+        <item>My Account</item>
+        <item>Sign Out</item>
+    </string-array>
+
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="action_toursearch">Tour Search</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="facebook_app_id">718277081677103</string>
