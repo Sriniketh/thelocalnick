@@ -11,5 +11,11 @@
 
     <color name="textHint">#95A2A7</color>
     <color name="facebook">#3A5998</color>
+
+    <color name="primaryText">#DE000000</color>
+    <color name="secondaryText">#8A000000</color>
+
+    <color name="icons">#888888</color>
+    <color name="divider">#F4F4F4</color>
 </resources>
 
