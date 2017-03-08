@@ -12,8 +12,10 @@ import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoUserSession
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.continuations.AuthenticationContinuation;
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.continuations.AuthenticationDetails;
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.continuations.ChallengeContinuation;
+import com.amazonaws.mobileconnectors.cognitoidentityprovider.continuations.ForgotPasswordContinuation;
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.continuations.MultiFactorAuthenticationContinuation;
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.handlers.AuthenticationHandler;
+import com.amazonaws.mobileconnectors.cognitoidentityprovider.handlers.ForgotPasswordHandler;
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.handlers.GenericHandler;
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.handlers.SignUpHandler;
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.handlers.VerificationHandler;
@@ -30,6 +32,7 @@ import java.util.Set;
 import booboo.thelocalnick.R;
 import booboo.thelocalnick.databinding.FragmentCreateAccountBinding;
 import booboo.thelocalnick.signin.ConfirmEmailViewModel;
+import booboo.thelocalnick.signin.ForgotPasswordViewModel;
 import booboo.thelocalnick.signin.SignInViewModel;
 import booboo.thelocalnick.signin.SignUpViewModel;
 
@@ -254,6 +257,30 @@ public class AmazonCognitoHelper {
         getPool().getUser(username).confirmSignUpInBackground(confirmCode, true, confHandler);
     }
 
+    ForgotPasswordHandler forgotPasswordHandler = new ForgotPasswordHandler() {
+        @Override
+        public void onSuccess() {
+            //closeWaitDialog();
+            //showDialogMessage("Password successfully changed!","");
+            //inPassword.setText("");
+            //inPassword.requestFocus();
+        }
+
+        @Override
+        public void getResetCode(ForgotPasswordContinuation forgotPasswordContinuation) {
+            //closeWaitDialog();
+            //getForgotPasswordCode(forgotPasswordContinuation);
+        }
+
+        @Override
+        public void onFailure(Exception e) {
+            //closeWaitDialog();
+            //showDialogMessage("Forgot password failed",AppHelper.formatException(e));
+        }
+    };
+    public void performForgotPassword(ForgotPasswordViewModel forgotPasswordViewModel){
+        getPool().getUser(username).forgotPasswordInBackground(forgotPasswordHandler);
+    }
     public void performResend(ConfirmEmailViewModel confirmEmailViewModel){
         this.confirmEmailViewModel = confirmEmailViewModel;
         getPool().getUser(username).resendConfirmationCodeInBackground(resendConfCodeHandler);

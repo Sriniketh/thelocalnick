@@ -55,7 +55,8 @@
                     android:text="SIGN IN WITH FACEBOOK"
                     android:textColor="@color/white"
                     android:background="@color/facebook"
-                    android:layout_marginBottom="20dp"/>
+                    android:layout_marginBottom="20dp"
+                    android:onClick="@{suvm.onFacebookSignInclicked()}"/>
                 <EditText
                     android:id="@+id/name"
                     android:layout_width="match_parent"
