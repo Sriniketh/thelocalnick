@@ -5,4 +5,5 @@
     <dimen name="form_padding">24dp</dimen>
     <dimen name="form_vertical_space">8dp</dimen>
     <dimen name="edit_text_padding">10dp</dimen>
+    <dimen name="tour_tile_height">150dp</dimen>
 </resources>
