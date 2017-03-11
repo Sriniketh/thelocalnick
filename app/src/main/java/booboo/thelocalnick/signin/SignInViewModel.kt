@@ -2,10 +2,16 @@ package booboo.thelocalnick.signin
 
 
 import android.databinding.BaseObservable
+import android.util.Log
 import android.view.View
 import booboo.thelocalnick.AmazonCognito.AmazonCognitoHelper
 import booboo.thelocalnick.AmazonCognito.FacebookCognitoHelper
 import booboo.thelocalnick.R
+import booboo.thelocalnick.networkutils.HttpClient
+import booboo.thelocalnick.services.SearchService
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
+
 
 class SignInViewModel():BaseObservable() {
 
@@ -20,6 +26,14 @@ class SignInViewModel():BaseObservable() {
     fun validateInput(){
         if((signInFragment?.binding?.emailID?.text==null)||(signInFragment?.binding?.etPassword?.text==null)||signInFragment?.binding?.emailID?.text.toString()==""||signInFragment?.binding?.etPassword?.text.toString()=="") {
             signInFragment?.showDialogMessage(signInFragment?.getString(R.string.sign_in_failed),signInFragment?.getString(R.string.username_password_empty))
+            val searchService = HttpClient().getClient().create(SearchService::class.java)
+            val searchResult = searchService.getTours("Los Angeles")
+
+            searchResult.subscribeOn(Schedulers.newThread())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe { tour ->
+                        Log.e("Current search", tour.toString())
+                    }
         }
         else {
             AmazonCognitoHelper.getAppHelper().performLogin(this)

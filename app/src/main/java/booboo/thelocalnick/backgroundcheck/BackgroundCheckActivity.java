@@ -8,10 +8,6 @@ import android.widget.Spinner;
 
 import booboo.thelocalnick.R;
 
-/**
- * Created by ishankothari on 2/16/17.
- */
-
 public class BackgroundCheckActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
