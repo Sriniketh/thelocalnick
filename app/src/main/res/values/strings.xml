@@ -214,4 +214,15 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
+
+    <!-- Create Tour -->
+    <string name="create_tour_add_spot_button">Add Spot</string>
+    <string name="create_tour_spot_heading">Spot Addresses</string>
+    <string name="create_tour_spot_description">Let\'s give people an idea of what you will be doing on your adventure. Add the destinations you will be taking travelers.</string>
+    <string name="spot_card_name">Name</string>
+    <string name="spot_card_address">Address</string>
+    <string name="spot_card_description">Description</string>
+    <string name="add_spot_name">Spot Name</string>
+    <string name="add_spot_address">Spot Address</string>
+    <string name="add_spot_description">Spot Description</string>
 </resources>
