@@ -10,10 +10,6 @@ import android.view.MenuItem
 import booboo.thelocalnick.R
 
 
-
-
-
-
 class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -34,6 +30,14 @@ class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
         val navigationView = findViewById(R.id.nav_view) as NavigationView
         navigationView.setNavigationItemSelectedListener(this)
         selectItem(0);
+
+//        findViewById(R.id.search_action).setOnClickListener { view ->
+//            val ft = fragmentManager.beginTransaction()
+//            val newFragment = SigninDialog()
+//            newFragment.show(ft, "dialog")
+
+//        }
+
 
     }
 
