@@ -1,5 +1,6 @@
 package booboo.thelocalnick.AmazonCognito;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoDevice;
@@ -35,6 +36,7 @@ import booboo.thelocalnick.signin.ConfirmEmailViewModel;
 import booboo.thelocalnick.signin.ForgotPasswordViewModel;
 import booboo.thelocalnick.signin.SignInViewModel;
 import booboo.thelocalnick.signin.SignUpViewModel;
+import booboo.thelocalnick.tourListing.HomeScreenActivity;
 
 public class AmazonCognitoHelper {
 
@@ -106,6 +108,9 @@ public class AmazonCognitoHelper {
             Log.e("AWS", "Auth Success");
             AmazonCognitoHelper.setCurrSession(cognitoUserSession);
             AmazonCognitoHelper.newDevice(device);
+            Intent i = new Intent(signInViewModel.getSignInFragment().getActivity(),HomeScreenActivity.class);
+            signInViewModel.getSignInFragment().getActivity().startActivity(i);
+
         }
 
         @Override

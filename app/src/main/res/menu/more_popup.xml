@@ -1,13 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item
-        android:id="@+id/menuItemReport"
-        app:showAsAction="ifRoom|withText"
-        android:title="Report tour"
-        android:visible="true"/>
-    <item
-        android:id="@+id/menuItemCreate"
-        app:showAsAction="ifRoom|withText"
-        android:title="Create tour"
-        android:visible="true"/>
-</menu>
+        <item android:id="@+id/search_action"
+            android:icon="@drawable/ic_search_white_24px"
+            android:title="@string/search_placeholder"
+            android:actionViewClass="android.widget.SearchView"
+            app:showAsAction="always"/>
+        <item android:id="@+id/filter_action"
+        android:icon="@drawable/ic_filter_list_white_24px"
+        android:title="Filter"
+            app:showAsAction="always"/>
+
+    </menu>

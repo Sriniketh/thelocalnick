@@ -10,7 +10,7 @@ class HttpClient {
 
     private var mRestService: Retrofit? = null
 
-    fun getClient(): Retrofit {
+    fun getClient(url:String): Retrofit {
         if (mRestService == null) {
             val client = OkHttpClient().newBuilder().addInterceptor (HttpInterceptor()).build()
             // ***YOUR CUSTOM INTERCEPTOR GOES HERE***
@@ -21,7 +21,7 @@ class HttpClient {
                     // Add dependencies
                     .addConverterFactory(GsonConverterFactory.create())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                    .baseUrl("https://api.myjson.com/")
+                    .baseUrl(url)
                     // Endpoint
                     .client(client)
                     .build()
@@ -29,4 +29,6 @@ class HttpClient {
         }
         return mRestService!!
     }
+
+
 }

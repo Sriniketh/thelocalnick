@@ -3,10 +3,6 @@ package booboo.thelocalnick.exploreTour;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.PopupMenu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.LinearLayout;
 
 import booboo.thelocalnick.R;
 
@@ -22,27 +18,7 @@ public class ExploreTourFragment extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_explore_tour);
 
-        LinearLayout llMore = (LinearLayout) findViewById(R.id.llMore);
-        llMore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                PopupMenu popupMenu = new PopupMenu(ExploreTourFragment.this, view);
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem item) {
-                        switch (item.getItemId()) {
-                            case R.id.menuItemReport:
-                                return true;
-                            case R.id.menuItemCreate:
-                                return true;
-                        }
-                        return false;
-                    }
-                });
-                popupMenu.inflate(R.menu.more_popup);
-                popupMenu.show();
-            }
-        });
+
     }
 
     /*@Nullable
