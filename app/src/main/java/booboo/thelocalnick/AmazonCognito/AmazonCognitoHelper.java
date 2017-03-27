@@ -31,7 +31,8 @@ import java.util.Map;
 import java.util.Set;
 
 import booboo.thelocalnick.R;
-import booboo.thelocalnick.databinding.FragmentCreateAccountBinding;
+//import booboo.thelocalnick.databinding.FragmentCreateAccountBinding;
+//import booboo.thelocalnick.databinding.FragmentCreateAccountBinding;
 import booboo.thelocalnick.signin.ConfirmEmailViewModel;
 import booboo.thelocalnick.signin.ForgotPasswordViewModel;
 import booboo.thelocalnick.signin.SignInViewModel;
@@ -245,11 +246,12 @@ public class AmazonCognitoHelper {
 
     public void performSignUp(SignUpViewModel signUpViewModel) {
         this.signUpViewModel = signUpViewModel;
-        FragmentCreateAccountBinding binding = signUpViewModel.getSignUpFragment().getBinding();
-        this.username = binding.signUpEmailID.getText().toString();
-        this.password = binding.signUpPassword.getText().toString();
-        userAttributes.addAttribute(signUpFieldsC2O.get("name"),binding.name.getText().toString());
-        userAttributes.addAttribute(signUpFieldsC2O.get("Phone number"),binding.signUpPhonenumber.getText().toString());
+
+
+       this.username = signUpViewModel.getSignUpFragment().getBinding().signUpEmailID.getText().toString();
+        this.password = signUpViewModel.getSignUpFragment().getBinding().signUpPassword.getText().toString();
+        userAttributes.addAttribute(signUpFieldsC2O.get("name"),signUpViewModel.getSignUpFragment().getBinding().name.getText().toString());
+       userAttributes.addAttribute(signUpFieldsC2O.get("Phone number"),signUpViewModel.getSignUpFragment().getBinding().signUpPhonenumber.getText().toString());
         userAttributes.addAttribute(signUpFieldsC2O.get("Email"),username);
         signUpViewModel.getSignUpFragment().showWaitDialog(signUpViewModel.getSignUpFragment().getString(R.string.signing_up));
         getPool().signUpInBackground(username, password, userAttributes, null, signUpHandler);
