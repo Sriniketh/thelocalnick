@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import booboo.thelocalnick.AmazonCognito.AmazonCognitoHelper
+import booboo.thelocalnick.CreateTour.CreateTourStepper
 import booboo.thelocalnick.CreateTour.SpotFragment
 import booboo.thelocalnick.gettingstarted.OnBoarding
 import booboo.thelocalnick.tourListing.HomeScreenActivity
@@ -46,9 +47,13 @@ class MainActivity : AppCompatActivity() {
 //            //Change this to home fragment
 //            ft.add(R.id.output, OnBoarding())
 //        }
-        ft.add(R.id.output, SpotFragment())
+        //TODO remove the following line for master
+        //ft.add(R.id.output, SpotFragment())
+        var intent: Intent = Intent(this, CreateTourStepper::class.java)
+        startActivity(intent)
         ft.commit()
     }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         callbackManager.onActivityResult(requestCode, resultCode, data)

@@ -13,10 +13,15 @@ import booboo.thelocalnick.R
 import booboo.thelocalnick.data.Spot
 import booboo.thelocalnick.databinding.FragmentCreateTourSpotDescriptionBinding
 import booboo.thelocalnick.utils.BaseFragment
+import com.github.fcannizzaro.materialstepper.AbstractStep
 import java.util.ArrayList
 
 
-class SpotFragment : BaseFragment() {
+class SpotFragment : AbstractStep() {
+    override fun name(): String {
+        return "Tab " + getArguments().getInt("position", 0)
+    }
+
     var binding: FragmentCreateTourSpotDescriptionBinding? = null
     val list: ArrayList<Spot> = ArrayList()
     var recyclerView: RecyclerView? = null

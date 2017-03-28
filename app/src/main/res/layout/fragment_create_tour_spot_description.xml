@@ -12,6 +12,7 @@
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:id="@+id/create_tour_spot_description_parent_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/backgroundGray"
@@ -50,8 +51,8 @@
                 android:id="@+id/spot_list_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="10dp"
-                android:layout_margin="10dp"/>
+                android:layout_margin="10dp"
+                android:padding="10dp" />
         </LinearLayout>
 
         <android.support.design.widget.FloatingActionButton
@@ -59,9 +60,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
+            android:onClick="@{ctvm.onNextClickedSpotDescription()}"
             android:src="@android:drawable/ic_media_next"
             app:backgroundTint="@color/colorPrimary"
-            app:layout_anchor="@id/spot_list_view"
+            app:layout_anchor="@id/create_tour_spot_description_parent_layout"
             app:layout_anchorGravity="bottom|right|end" />
 
     </android.support.design.widget.CoordinatorLayout>

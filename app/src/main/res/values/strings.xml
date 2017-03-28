@@ -216,8 +216,8 @@
 
 
     <!-- Create Tour -->
-    <string name="create_tour_add_spot_button">Add Spot</string>
-    <string name="create_tour_spot_heading">Spot Addresses</string>
+    <string name="create_tour_add_spot_button">Add a spot</string>
+    <string name="create_tour_spot_heading">Spot Details</string>
     <string name="create_tour_spot_description">Let\'s give people an idea of what you will be doing on your adventure. Add the destinations you will be taking travelers.</string>
     <string name="spot_card_name">Name</string>
     <string name="spot_card_address">Address</string>
@@ -225,4 +225,14 @@
     <string name="add_spot_name">Spot Name</string>
     <string name="add_spot_address">Spot Address</string>
     <string name="add_spot_description">Spot Description</string>
+    <string name="add_spot_title">Enter Spot Details</string>
+    <string name="tour_cost_title">Tour cost</string>
+    <string name="tour_time_title">Tour duration</string>
+    <string name="tour_cost_desc">Time to figure what to charge. It\'s up to you! If you need help visit our cost guide page.</string>
+    <string name="tour_time_desc">Some adventures are longer than others. How long would yours be?</string>
+    <string name="tour_cost_hint">Tour cost</string>
+    <string name="tour_time_hint">Tour duration</string>
+    <string name="tour_photos_title">Tour Photos</string>
+    <string name="tour_photos_description">A picture is worth a thousand words. Share photos of the destinations you will be taking customers.</string>
+    <string name="create_tour_add_photos_button">Add Photos</string>
 </resources>

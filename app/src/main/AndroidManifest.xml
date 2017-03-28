@@ -41,6 +41,10 @@
         <activity
             android:name=".backgroundcheck.BackgroundCheckActivity"
             android:theme="@style/NoActionBarTheme" />
+        <activity android:name=".CreateTour.CreateTourStepper" />
+        <activity
+            android:name=".exploreTour.ExploreTourFragment"
+            android:theme="@style/AppTheme"></activity>
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
