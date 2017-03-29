@@ -30,7 +30,7 @@ class TourListingContent : BaseFragment() {
 
         val lLayout = rootView.findViewById(R.id.tourlistgrid) as LinearLayout
         lLayout.setBackgroundColor(Color.parseColor("#ffffff"))
-        val fragContext = container!!.context
+        val fragContext = activity
 
 
         val searchService = HttpClient().getClient("http://api.myjson.com").create(SearchService::class.java)

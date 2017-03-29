@@ -4,7 +4,7 @@
     <color name="colourFade">#D9A77C</color>
     <!-- TODO change the primary dark color -->
     <color name="colorPrimaryDark">#D77B2A</color>
-    <color name="colorAccent">#2A8CD7</color>
+    <color name="colorAccent">#D77B2A</color>
     <color name="colorPrimaryLight">#F29441</color>
 
     <color name="white">#FFFFFF</color>

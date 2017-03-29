@@ -1,12 +1,10 @@
 package booboo.thelocalnick.tourListing
 
 import android.app.DialogFragment
-import android.app.Fragment
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.NumberPicker
 import android.widget.TextView
 import booboo.thelocalnick.R
@@ -38,7 +36,7 @@ class GuestFragment : DialogFragment(){
         val numberKids = view.findViewById(R.id.numberPicker1) as NumberPicker
         numberKids.maxValue=5
         numberKids.minValue=1
-        val saveButton = view.findViewById(R.id.save2)
+        val saveButton = view.findViewById(R.id.guest_save)
         saveButton.setOnClickListener{
             val guest = activity.findViewById(R.id.guests) as TextView
             if(number.value == 1)

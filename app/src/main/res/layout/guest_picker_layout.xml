@@ -5,7 +5,7 @@
 
 
     <Button
-        android:id="@+id/save2"
+        android:id="@+id/guest_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.05"

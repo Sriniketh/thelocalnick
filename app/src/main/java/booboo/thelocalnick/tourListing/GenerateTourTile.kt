@@ -1,6 +1,6 @@
 package booboo.thelocalnick.tourListing
 
-import android.content.Context
+import android.app.Activity
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,7 +9,7 @@ import booboo.thelocalnick.models.Tour
 import com.squareup.picasso.Picasso
 
 
-class GenerateTourTile(private val context: Context, private val itemList: List<Tour>) : RecyclerView.Adapter<TourTiles>() {
+class GenerateTourTile(private val context: Activity, private val itemList: List<Tour>) : RecyclerView.Adapter<TourTiles>() {
 
     init {
         this.setHasStableIds(true)
@@ -18,8 +18,7 @@ class GenerateTourTile(private val context: Context, private val itemList: List<
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TourTiles {
 
         val layoutView = LayoutInflater.from(parent.context).inflate(R.layout.fragment_tour_tiles, null)
-        val rcv = TourTiles(layoutView)
-        /* this.setHasStableIds(true);*/
+        val rcv = TourTiles(layoutView,context)
         return rcv
     }
 
@@ -31,7 +30,6 @@ class GenerateTourTile(private val context: Context, private val itemList: List<
 //                    holder.tripImage.setImageBitmap(bmp)
 //
 //                }
-
         Picasso.with(context)
                 .load(itemList[position].tourImage)
                 .error(R.drawable.gs1)
@@ -45,6 +43,8 @@ class GenerateTourTile(private val context: Context, private val itemList: List<
         }
         holder.tripRate.rating = (itemList[position].price as Int).toFloat()
         holder.tripReviewCount.text = " (" + itemList[position].reviews + ")"
+        holder.tour = itemList[position]
+
     }
 
     override fun getItemCount(): Int {

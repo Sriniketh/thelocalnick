@@ -2,11 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="3">
+    android:weightSum="3"
+    android:background="@color/white">
     <!-- TODO remove placeholer text -->
     <ImageView
+        android:id="@+id/header_image"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="500dp"
         android:src="@drawable/gettingstarted3"
         android:scaleType="centerCrop"
         android:layout_weight="2"/>
@@ -27,6 +29,7 @@
                 android:padding="@dimen/activity_horizontal_margin"
                 android:weightSum="10">
                 <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/guide_image"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/person"
@@ -43,12 +46,14 @@
                     android:orientation="vertical"
                     android:layout_weight="2">
                     <TextView
+                        android:id="@+id/tour_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:textColor="@color/primaryText"
                         android:text="LA Art Museum Tour"/>
                     <TextView
+                        android:id="@+id/guide_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
@@ -61,6 +66,7 @@
                     android:orientation="vertical"
                     android:layout_weight="4">
                     <TextView
+                        android:id="@+id/tour_price"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -68,6 +74,7 @@
                         android:textAlignment="center"
                         android:text="$60"/>
                     <TextView
+                        android:id="@+id/tour_duration"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
@@ -154,6 +161,7 @@
                 android:orientation="vertical"
                 android:padding="@dimen/activity_horizontal_margin">
                 <TextView
+                    android:id="@+id/tour_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -180,6 +188,7 @@
                     android:layout_weight="1">
 
                     <TextView
+                        android:id="@+id/tour_next_avaiable"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"

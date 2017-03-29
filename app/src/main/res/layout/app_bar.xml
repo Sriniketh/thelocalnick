@@ -8,7 +8,9 @@
     android:fitsSystemWindows="true"
     tools:context="booboo.thelocalnick.tourListing.HomeScreenActivity">
 
+
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
@@ -52,6 +54,7 @@
                             android:textColor="@color/primaryText"
                             android:padding="5dp"
                             android:maxLines="1"
+                            android:focusable="false"
                             />
 
 
@@ -124,5 +127,14 @@
 
 
     </android.support.v4.widget.NestedScrollView>
+
+
+    <RelativeLayout
+        android:id="@+id/output"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        />
+
 
 </android.support.design.widget.CoordinatorLayout>
