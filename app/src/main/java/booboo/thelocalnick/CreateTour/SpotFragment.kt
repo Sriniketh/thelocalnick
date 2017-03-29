@@ -12,35 +12,34 @@ import android.widget.EditText
 import booboo.thelocalnick.R
 import booboo.thelocalnick.data.Spot
 import booboo.thelocalnick.databinding.FragmentCreateTourSpotDescriptionBinding
-import booboo.thelocalnick.utils.BaseFragment
 import com.github.fcannizzaro.materialstepper.AbstractStep
 import java.util.ArrayList
 
 
-class SpotFragment : AbstractStep() {
-    override fun name(): String {
-        return "Tab " + getArguments().getInt("position", 0)
-    }
-
+class SpotFragment(createTourViewModel: CreateTourViewModel) : AbstractStep() {
     var binding: FragmentCreateTourSpotDescriptionBinding? = null
     val list: ArrayList<Spot> = ArrayList()
     var recyclerView: RecyclerView? = null
     private var recyclerAdapter: SpotRecyclerViewAdapter? = null
+    var createTourViewModel: CreateTourViewModel? = null
+
+    init {
+        this.createTourViewModel = createTourViewModel
+    }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         binding = FragmentCreateTourSpotDescriptionBinding.inflate(inflater, container, false)
-        val ctvm = CreateTourViewModel()
-        ctvm.spotFragment = this
+        createTourViewModel?.spotFragment = this
 
         recyclerAdapter = SpotRecyclerViewAdapter(list)
         recyclerView = binding?.spotListView
         recyclerView?.layoutManager = LinearLayoutManager(this.activity, LinearLayoutManager.VERTICAL, false)
         recyclerView?.setHasFixedSize(true)
         recyclerView?.adapter = recyclerAdapter
-        ctvm.recyclerView = recyclerView
+        //ctvm.recyclerView = recyclerView
 
-        binding?.ctvm = ctvm
+        binding?.ctvm = createTourViewModel
         return binding?.root
     }
 
@@ -59,5 +58,21 @@ class SpotFragment : AbstractStep() {
                 })
         dialog = builder.create()
         dialog.show()
+    }
+
+    override fun name(): String {
+        return "Tab " + getArguments().getInt("position", 0)
+    }
+
+    override fun onNext() {
+        super.onNext()
+    }
+
+    override fun nextIf(): Boolean {
+        return list.size > 0
+    }
+
+    override fun error(): String {
+        return "Please add a spot"
     }
 }

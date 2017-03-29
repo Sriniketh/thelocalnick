@@ -10,9 +10,10 @@ class CreateTourStepper : DotStepper() {
     override fun onCreate(savedInstanceState: Bundle?) {
         supportActionBar?.hide()
         setTitle("Create Tour")
-        addStep(createFragment(SpotFragment()))
-        addStep(createFragment(TourTimeCostFragment()))
-        addStep(createFragment(TourPhotosFragment()))
+        var ctvm: CreateTourViewModel = CreateTourViewModel()
+        addStep(createFragment(SpotFragment(ctvm)))
+        addStep(createFragment(TourTimeCostFragment(ctvm)))
+        addStep(createFragment(TourPhotosFragment(ctvm)))
         super.onCreate(savedInstanceState)
     }
 

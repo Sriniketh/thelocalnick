@@ -8,18 +8,35 @@ import booboo.thelocalnick.databinding.FragmentCreateTourTimeCostBinding
 import booboo.thelocalnick.utils.BaseFragment
 import com.github.fcannizzaro.materialstepper.AbstractStep
 
-class TourTimeCostFragment() : AbstractStep() {
-    override fun name(): String {
-        return "Tab " + getArguments().getInt("position", 0)
-    }
-
+class TourTimeCostFragment(createTourViewModel: CreateTourViewModel) : AbstractStep() {
     var binding: FragmentCreateTourTimeCostBinding? = null
-    var ctvm: CreateTourViewModel? = null
+    var createTourViewModel: CreateTourViewModel? = null
+
+    init {
+        this.createTourViewModel = createTourViewModel
+    }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         binding = FragmentCreateTourTimeCostBinding.inflate(inflater, container, false)
-        binding?.ctvm = ctvm
+        createTourViewModel?.tourTimeCostFragment = this
+        binding?.ctvm = createTourViewModel
         return binding?.root
+    }
+
+    override fun name(): String {
+        return "Tab " + getArguments().getInt("position", 0)
+    }
+
+    override fun onNext() {
+        super.onNext()
+    }
+
+    override fun nextIf(): Boolean {
+        return binding?.tourTime?.text.toString().isNotEmpty() && binding?.tourCost?.text.toString().isNotEmpty()
+    }
+
+    override fun error(): String {
+        return "Please enter time and cost"
     }
 }

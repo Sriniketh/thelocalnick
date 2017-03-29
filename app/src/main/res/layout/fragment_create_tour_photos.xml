@@ -1,4 +1,5 @@
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -7,7 +8,7 @@
             type="booboo.thelocalnick.CreateTour.CreateTourViewModel" />
     </data>
 
-    <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -15,8 +16,9 @@
             android:id="@+id/create_tour_photos_parent_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/white"
             android:orientation="vertical"
-            android:padding="10dp"
+            android:padding="5dp"
             android:tag="layout/fragment_create_tour_photos_0">
 
 
@@ -45,11 +47,11 @@
                 android:id="@+id/tour_photos_list_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="10dp"
+                android:layout_margin="5dp"
                 android:padding="10dp" />
         </LinearLayout>
 
-        <android.support.design.widget.FloatingActionButton
+        <!--<android.support.design.widget.FloatingActionButton
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -57,7 +59,7 @@
             android:src="@android:drawable/ic_media_next"
             app:backgroundTint="@color/colorPrimary"
             app:layout_anchor="@id/create_tour_photos_parent_layout"
-            app:layout_anchorGravity="bottom|right|end" />
+            app:layout_anchorGravity="bottom|right|end" />-->
 
     </android.support.design.widget.CoordinatorLayout>
 </layout>
