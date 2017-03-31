@@ -11,6 +11,7 @@ class CreateTourViewModel {
     var spotFragment: SpotFragment? = null
     var tourTimeCostFragment: TourTimeCostFragment? = null
     var tourPhotosFragment: TourPhotosFragment? = null
+    var tourScheduleFragment: TourScheduleFragment? = null
     //var recyclerView: RecyclerView? = null
     var tour: Tour? = null
     var spots: List<Spot>? = ArrayList()
@@ -26,6 +27,12 @@ class CreateTourViewModel {
         return View.OnClickListener { view ->
             Log.d("TAG", "in onAddSpotClicked")
             spotFragment?.showAddSpotDialog()
+        }
+    }
+
+    fun onAddTimeClicked(): View.OnClickListener {
+        return View.OnClickListener {
+            tourScheduleFragment?.showAddTimeDialog()
         }
     }
 

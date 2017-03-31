@@ -14,6 +14,7 @@ class CreateTourStepper : DotStepper() {
         addStep(createFragment(SpotFragment(ctvm)))
         addStep(createFragment(TourTimeCostFragment(ctvm)))
         addStep(createFragment(TourPhotosFragment(ctvm)))
+        addStep(createFragment(TourScheduleFragment(ctvm)))
         super.onCreate(savedInstanceState)
     }
 

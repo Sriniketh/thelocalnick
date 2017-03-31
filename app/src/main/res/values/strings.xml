@@ -217,8 +217,11 @@
 
     <!-- Create Tour -->
     <string name="create_tour_add_spot_button">Add a spot</string>
+    <string name="create_tour_add_time_button">Add time</string>
     <string name="create_tour_spot_heading">Spot Details</string>
+    <string name="create_tour_schedule_time_heading">Schedule</string>
     <string name="create_tour_spot_description">Let\'s give people an idea of what you will be doing on your adventure. Add the destinations you will be taking travelers.</string>
+    <string name="create_tour_schedule_time_description">When can you give this tour? Let\'s set your availability. You\'ll be able to change this at any time.</string>
     <string name="spot_card_name">Name</string>
     <string name="spot_card_address">Address</string>
     <string name="spot_card_description">Description</string>
@@ -235,4 +238,6 @@
     <string name="tour_photos_title">Tour Photos</string>
     <string name="tour_photos_description">A picture is worth a thousand words. Share photos of the destinations you will be taking customers.</string>
     <string name="create_tour_add_photos_button">Add Photos</string>
+    <string name="schedule_card_view_from_hrs_mins">From %1$s Hrs %2$s Mins</string>
+    <string name="schedule_card_view_to_hrs_mins">To %1$s Hrs %2$s Mins</string>
 </resources>

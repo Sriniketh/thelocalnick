@@ -2,6 +2,7 @@ package booboo.thelocalnick.AmazonCognito;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
+import android.widget.EditText;
 
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoDevice;
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoUser;
@@ -239,29 +240,33 @@ public class AmazonCognitoHelper {
 
     public void performLogin(SignInViewModel signInViewModel) {
         this.signInViewModel = signInViewModel;
-        this.username = signInViewModel.getSignInFragment().getBinding().emailID.getText().toString();
-        this.password = signInViewModel.getSignInFragment().getBinding().etPassword.getText().toString();
+            this.username = ((EditText)signInViewModel.getSignInFragment().getActivity().findViewById(R.id.emailID)).getText().toString();
+            this.password = ((EditText)signInViewModel.getSignInFragment().getActivity().findViewById(R.id.etPassword)).getText().toString();
+
+
         AmazonCognitoHelper.userPool.getUser(username).getSessionInBackground(authenticationHandler);
     }
 
     public void performSignUp(SignUpViewModel signUpViewModel) {
         this.signUpViewModel = signUpViewModel;
 
-
-       this.username = signUpViewModel.getSignUpFragment().getBinding().signUpEmailID.getText().toString();
-        this.password = signUpViewModel.getSignUpFragment().getBinding().signUpPassword.getText().toString();
-        userAttributes.addAttribute(signUpFieldsC2O.get("name"),signUpViewModel.getSignUpFragment().getBinding().name.getText().toString());
-       userAttributes.addAttribute(signUpFieldsC2O.get("Phone number"),signUpViewModel.getSignUpFragment().getBinding().signUpPhonenumber.getText().toString());
-        userAttributes.addAttribute(signUpFieldsC2O.get("Email"),username);
+        this.username = ((EditText) signUpViewModel.getSignUpFragment().getActivity().findViewById(R.id.sign_up_emailID)).getText().toString();
+        this.password = ((EditText) signUpViewModel.getSignUpFragment().getActivity().findViewById(R.id.sign_up_password)).getText().toString();
+        userAttributes.addAttribute(signUpFieldsC2O.get("name"), ((EditText) signUpViewModel.getSignUpFragment().getActivity().findViewById(R.id.name)).getText().toString());
+        userAttributes.addAttribute(signUpFieldsC2O.get("Phone number"), ((EditText) signUpViewModel.getSignUpFragment().getActivity().findViewById(R.id.sign_up_phonenumber)).getText().toString());
+        userAttributes.addAttribute(signUpFieldsC2O.get("Email"), username);
         signUpViewModel.getSignUpFragment().showWaitDialog(signUpViewModel.getSignUpFragment().getString(R.string.signing_up));
         getPool().signUpInBackground(username, password, userAttributes, null, signUpHandler);
+
+
     }
 
     public void performConfirmation(ConfirmEmailViewModel confirmEmailViewModel){
         this.confirmEmailViewModel = confirmEmailViewModel;
-        String confirmCode = confirmEmailViewModel.getConfirmEmailFragment().getBinding().etConfirmationCode.getText().toString();
+        String confirmCode = ((EditText)confirmEmailViewModel.getConfirmEmailFragment().getActivity().findViewById(R.id.etConfirmationCode)).getText().toString();
         confirmEmailViewModel.getConfirmEmailFragment().showWaitDialog(confirmEmailViewModel.getConfirmEmailFragment().getString(R.string.signing_up));
         getPool().getUser(username).confirmSignUpInBackground(confirmCode, true, confHandler);
+
     }
 
     ForgotPasswordHandler forgotPasswordHandler = new ForgotPasswordHandler() {

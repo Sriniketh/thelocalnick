@@ -15,7 +15,9 @@ import io.reactivex.schedulers.Schedulers
 
 class SignInViewModel():BaseObservable() {
 
-    var signInFragment:SignInFragment? = null
+
+
+    var signInFragment:SignInFragment? =null
 
     fun onSignInclicked(): View.OnClickListener {
         return View.OnClickListener { view ->

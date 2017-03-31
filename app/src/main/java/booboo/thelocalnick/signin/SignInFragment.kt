@@ -9,7 +9,7 @@ import booboo.thelocalnick.databinding.FragmentSignInBinding
 import booboo.thelocalnick.utils.BaseFragment
 
 class SignInFragment : BaseFragment() {
-    var binding:FragmentSignInBinding? = null
+    var binding:FragmentSignInBinding?=null
     override fun onCreateView(inflater: LayoutInflater?, parent: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, parent, savedInstanceState)
         binding = FragmentSignInBinding.inflate(inflater, parent, false)

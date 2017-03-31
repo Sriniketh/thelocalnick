@@ -3,43 +3,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="10dp"
-    android:layout_margin="10dp">
+    android:padding="10dp">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
         android:padding="5dp"
-        android:text="@string/add_spot_title"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:text="@string/add_spot_title" />
 
     <EditText
         android:id="@+id/add_spot_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
         android:hint="@string/add_spot_name"
-        android:padding="5dp"
-        android:textSize="15sp" />
+        android:padding="5dp" />
 
     <EditText
         android:id="@+id/add_spot_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
         android:hint="@string/add_spot_address"
-        android:padding="5dp"
-        android:textSize="15sp" />
+        android:padding="5dp" />
 
     <EditText
         android:id="@+id/add_spot_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
         android:hint="@string/add_spot_description"
-        android:padding="5dp"
-        android:textSize="15sp" />
+        android:padding="5dp" />
 
 </LinearLayout>

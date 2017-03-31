@@ -3,8 +3,6 @@ package booboo.thelocalnick.tourListing
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.location.Geocoder
-import android.location.LocationManager
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v4.app.ActivityCompat
@@ -15,8 +13,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
 import booboo.thelocalnick.R
-import java.io.IOException
-import java.util.*
 
 
 
@@ -131,49 +127,49 @@ class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
         return ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
     }
 
-    fun setLocationName() {
-
-        var cityName = "Not Found"
-//        if (checkPermission()) {
-//            ActivityCompat.requestPermissions(
-//                    this,
-//                    arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION),
-//                    PERMISSION_LOCATION_REQUEST_CODE)
+//    fun setLocationName() {
+//
+//        var cityName = "Not Found"
+////        if (checkPermission()) {
+////            ActivityCompat.requestPermissions(
+////                    this,
+////                    arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION),
+////                    PERMISSION_LOCATION_REQUEST_CODE)
+////        }
+//        val locationManager=getSystemService(LOCATION_SERVICE) as LocationManager
+//        val location=locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+//        val gcd = Geocoder(baseContext, Locale.getDefault())
+//        val lattitude = location.latitude
+//        val longitude = location.longitude
+//        try {
+//
+//            val addresses = gcd.getFromLocation(lattitude, longitude,
+//                    10)
+//
+//            for (adrs in addresses) {
+//                if (adrs != null) {
+//
+//                    val city = adrs.locality
+//                    if (city != null && city != "") {
+//                        cityName = city
+//                        println("city ::  " + cityName)
+//                    } else {
+//
+//                    }
+//                    // // you should also try with addresses.get(0).toSring();
+//
+//                }
+//
+//            }
+//        } catch (e: IOException) {
+//            e.printStackTrace()
 //        }
-        val locationManager=getSystemService(LOCATION_SERVICE) as LocationManager
-        val location=locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-        val gcd = Geocoder(baseContext, Locale.getDefault())
-        val lattitude = location.latitude
-        val longitude = location.longitude
-        try {
-
-            val addresses = gcd.getFromLocation(lattitude, longitude,
-                    10)
-
-            for (adrs in addresses) {
-                if (adrs != null) {
-
-                    val city = adrs.locality
-                    if (city != null && city != "") {
-                        cityName = city
-                        println("city ::  " + cityName)
-                    } else {
-
-                    }
-                    // // you should also try with addresses.get(0).toSring();
-
-                }
-
-            }
-        } catch (e: IOException) {
-            e.printStackTrace()
-        }
-
-        val textLocation = findViewById(R.id.location) as TextView
-        textLocation.text = cityName
-
-
-    }
+//
+//        val textLocation = findViewById(R.id.location) as TextView
+//        textLocation.text = cityName
+//
+//
+//    }
 
 
 }
