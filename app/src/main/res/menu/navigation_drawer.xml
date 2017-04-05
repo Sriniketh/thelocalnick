@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="schemas.android.com/tools"
-    tools:context="booboo.thelocalnick.tourListing.TourlistingDrawer">
-    <item
-        android:id="@+id/action_websearch"
-        android:icon="@android:drawable/ic_menu_search"
-        android:title="@string/action_toursearch"
-        app:actionViewClass="android.support.v7.widget.SearchView"
-        app:showAsAction="ifRoom|collapseActionView" />
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_explore"
+            android:title="Explore"
+             />
+        <item
+            android:id="@+id/nav_create"
+        android:title="Create Tour" />
+        <item
+            android:id="@+id/nav_account"
+            android:title="My Account" />
+        <item
+            android:id="@+id/nav_sign_out"
+            android:title="Sign Out" />
+    </group>
+
+
 </menu>

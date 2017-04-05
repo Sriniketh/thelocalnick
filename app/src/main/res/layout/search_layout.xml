@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="25dp"
+    android:padding="25dp">
+
+    <Button
+    android:text="Button"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/location_button"
+    android:background="@color/colorAccent" />
+
+    <Button
+        android:text="Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/date_button"
+        android:background="@color/colorAccent"
+        android:drawableLeft="@mipmap/ic_menu_guest"/>
+
+    <Button
+        android:text="Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/guest_button"
+        android:background="@color/colorAccent" />
+
+</LinearLayout>

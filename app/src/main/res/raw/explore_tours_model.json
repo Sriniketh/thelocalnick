@@ -1,0 +1,64 @@
+{
+  "tours": [
+    {
+      "tourId": "1ksajdflkasjdfasdkfjlaslkdfj232",
+      "tourTitle": "LA Art Museum Tour",
+      "tourImage": "http://images.universitytickets.com//images/0000004453920007835858893.jpg",
+      "guideName": "Nicholas",
+      "guideImage": "http://www.biorefine.eu/sites/default/files/people.png",
+      "price": 80.45,
+      "description": "glittering lights and dinosaurs. The Los Angeles County Museum of Art (LACMA) is an art museum located on Wilshire Boulevard in the Miracle Mile vicinity of Los Angeles. LACMA is on Museum Row, adjacent to the La Brea Tar Pits (George C. Page Museum).LACMA is the largest art museum in the western United States. It attracts nearly a million visitors annually.[3] It holds more than 150,000 works spanning the history of art from ancient times to the present. In addition to art exhibits, the museum features film and concert series.",
+      "rating": 4.6,
+      "reviews": 5,
+      "isFavorite": false,
+      "durationHours": 1,
+      "durationMins": 30,
+      "nextAvailability": "2017-04-05T20:15-05:00"
+    },
+    {
+      "tourId": "nf8qw4hf8n389h4f3894hff34f8394hf",
+      "tourTitle": "WeHo Weird Shops and Stops Tour",
+      "tourImage": "http://images1.laweekly.com/imager/u/original/6428330/velveteria_lohanesian.jpg",
+      "guideName": "Fahd",
+      "guideImage": "http://www.biorefine.eu/sites/default/files/people.png",
+      "price": 80.99,
+      "description": "weirdness personified",
+      "rating": 5,
+      "reviews": 7,
+      "isFavorite": true,
+      "durationHours": 2,
+      "durationMins": 12,
+      "nextAvailability": "2017-04-16T10:20+01:00"
+    },
+    {
+      "tourId": "2i3j928je298j3e2983je23enj2ijei2je",
+      "tourTitle": "Los Angeles Wall Crawl Adventure",
+      "tourImage": "http://www.traveller.com.au/content/dam/images/2/f/v/7/j/image.related.articleLeadwide.620x349.2fntf.png/1362961734977.jpg",
+      "guideName": "Johnathan",
+      "guideImage": "http://www.biorefine.eu/sites/default/files/people.png",
+      "price": 60,
+      "description": "graffiti",
+      "rating": 4,
+      "reviews": 3,
+      "isFavorite": false,
+      "durationHours": 3,
+      "durationMins": 0,
+      "nextAvailability": "2017-04-18T10:20+01:00"
+    },
+    {
+      "tourId": "832h8eh2839he89dn2n3928hnd3298283nd",
+      "tourTitle": "Santa Monica Foodie Tour",
+      "tourImage": "http://www.bubbagump.com/img/locations/BGSM_bigpic.jpg",
+      "guideName": "Kimmy",
+      "guideImage": "http://www.biorefine.eu/sites/default/files/people.png",
+      "price": 40,
+      "description": "Food Food Food....",
+      "rating": 3.4,
+      "reviews": 7,
+      "isFavorite": true,
+      "durationHours": 3,
+      "durationMins": 15,
+      "nextAvailability": "2017-04-13T17:20+01:00"
+    }
+  ]
+}
