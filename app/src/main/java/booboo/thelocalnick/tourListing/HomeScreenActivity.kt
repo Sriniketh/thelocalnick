@@ -89,6 +89,8 @@ class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
 
         val navigationView = findViewById(R.id.nav_view) as NavigationView
         navigationView.setNavigationItemSelectedListener(this)
+        navigationView.setCheckedItem(0);
+        navigationView.getMenu().getItem(0).setChecked(true);
         selectItem(0);
 
         //setLocationName()

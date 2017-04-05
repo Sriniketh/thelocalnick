@@ -97,8 +97,8 @@
     </string-array>
 
     <string-array name="drawerEntries">
-        <item>Create Tour</item>
         <item>Explore</item>
+        <item>Create Tour</item>
         <item>My Account</item>
         <item>Sign Out</item>
     </string-array>

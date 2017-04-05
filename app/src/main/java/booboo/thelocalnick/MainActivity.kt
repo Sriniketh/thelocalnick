@@ -10,6 +10,8 @@ import booboo.thelocalnick.tourListing.HomeScreenActivity
 
 
 
+
+
 class MainActivity : AppCompatActivity() {
 
     val callbackManager = com.facebook.CallbackManager.Factory.create()
@@ -30,6 +32,7 @@ class MainActivity : AppCompatActivity() {
         else {
             //Change this to home fragment
             val i = Intent(this, HomeScreenActivity::class.java)
+            i.flags = i.flags or Intent.FLAG_ACTIVITY_NO_HISTORY
             startActivity(i)
         }
         ft.commit()
