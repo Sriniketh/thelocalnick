@@ -3,8 +3,7 @@ package booboo.thelocalnick.tourListing
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.location.Geocoder
-import android.location.LocationManager
+
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v4.app.ActivityCompat
@@ -14,10 +13,10 @@ import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
+import booboo.thelocalnick.CreateTour.CreateTourStepper
 import booboo.thelocalnick.R
 import java.io.IOException
 import java.util.*
-
 
 
 
@@ -27,9 +26,16 @@ class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
 
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.nav_create_tour -> {
+                var intent: Intent = Intent(this, CreateTourStepper::class.java)
+                startActivity(intent)
+            }
+        }
+        return true
+    }
 
-
-        throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
+        //throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -131,6 +137,7 @@ class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
         return ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
     }
 
+
     fun setLocationName() {
 
         var cityName = "Not Found"
@@ -174,6 +181,5 @@ class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
 
 
     }
-
 
 }

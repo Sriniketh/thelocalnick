@@ -50,6 +50,5 @@ class LocationFragment : DialogFragment(){
             location.text = parent.getItemAtPosition(position) as String
         }
 
-
     }
 }

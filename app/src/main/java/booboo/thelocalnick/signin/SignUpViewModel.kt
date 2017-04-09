@@ -8,7 +8,8 @@ import booboo.thelocalnick.AmazonCognito.FacebookCognitoHelper
 
 class SignUpViewModel() {
 
-    var signUpFragment:SignUpFragment? = null
+
+    var signUpFragment:SignUpFragment?=null
 
     fun showConfirmationCodePage(){
         ConfirmEmailFragment().show(signUpFragment?.activity?.fragmentManager)
