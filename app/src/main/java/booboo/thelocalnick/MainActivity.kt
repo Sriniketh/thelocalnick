@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
             val editor = sharedPref.edit()
             editor.putBoolean(getString(R.string.app_opened_first_time), false)
             editor.commit()
+        }
         else {
             //Change this to home fragment
             val i = Intent(this, HomeScreenActivity::class.java)

@@ -3,6 +3,8 @@ package booboo.thelocalnick.tourListing
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.location.Geocoder
+import android.location.LocationManager
 
 import android.os.Bundle
 import android.support.design.widget.NavigationView
@@ -27,7 +29,7 @@ class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.nav_create_tour -> {
+            R.id.nav_create -> {
                 var intent: Intent = Intent(this, CreateTourStepper::class.java)
                 startActivity(intent)
             }
@@ -36,7 +38,7 @@ class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
     }
 
         //throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tourlistingdrawer)
