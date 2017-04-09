@@ -6,17 +6,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 
-import booboo.thelocalnick.R;
 import booboo.thelocalnick.data.Photo;
 import booboo.thelocalnick.databinding.PhotoCardViewBinding;
 
 class PhotoViewHolder extends RecyclerView.ViewHolder {
-    protected ImageView imageView;
     private PhotoCardViewBinding photoCardViewBinding;
 
     public PhotoViewHolder(View view) {
         super(view);
-        //this.imageView = (ImageView) view.findViewById(R.id.thumbnail);
         photoCardViewBinding = DataBindingUtil.bind(view);
     }
 

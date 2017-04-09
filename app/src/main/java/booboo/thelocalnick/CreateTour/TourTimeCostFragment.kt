@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import booboo.thelocalnick.databinding.FragmentCreateTourTimeCostBinding
-import booboo.thelocalnick.utils.BaseFragment
 import com.github.fcannizzaro.materialstepper.AbstractStep
 
 class TourTimeCostFragment(createTourViewModel: CreateTourViewModel) : AbstractStep() {
@@ -29,6 +28,8 @@ class TourTimeCostFragment(createTourViewModel: CreateTourViewModel) : AbstractS
     }
 
     override fun onNext() {
+        createTourViewModel?.cost = binding?.tourCost?.text.toString().toFloat()
+        createTourViewModel?.time = binding?.tourTime?.text.toString().toFloat()
         super.onNext()
     }
 

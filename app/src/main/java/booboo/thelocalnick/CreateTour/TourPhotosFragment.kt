@@ -34,6 +34,7 @@ class TourPhotosFragment(createTourViewModel: CreateTourViewModel) : AbstractSte
         this.createTourViewModel = createTourViewModel
     }
 
+
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         binding = FragmentCreateTourPhotosBinding.inflate(inflater, container, false)
@@ -53,9 +54,17 @@ class TourPhotosFragment(createTourViewModel: CreateTourViewModel) : AbstractSte
         return "Tab " + getArguments().getInt("position", 0)
     }
 
-    fun onClickAddPhotos() {
-        Log.d("TAG", "In onclickaddphotos")
+    override fun onNext() {
+        createTourViewModel?.photos = list
+        super.onNext()
+    }
 
+    override fun nextIf(): Boolean {
+        //TODO NEXT CONDITION FOR PHOTOS
+        return super.nextIf()
+    }
+
+    fun onClickAddPhotos() {
         if (checkSelfPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE) !== PackageManager.PERMISSION_GRANTED) {
 
             requestPermissions(arrayOf<String>(Manifest.permission.READ_EXTERNAL_STORAGE),
@@ -95,9 +104,7 @@ class TourPhotosFragment(createTourViewModel: CreateTourViewModel) : AbstractSte
                         photo.thumbnail = path
                         list.add(photo)
                     }
-                    //recyclerViewAdapter = PhotoRecyclerViewAdapter(this.context, list)
                     recyclerViewAdapter?.notifyDataSetChanged()
-                    //recyclerView?.adapter = recyclerViewAdapter
                 }
             }
         }

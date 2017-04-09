@@ -65,6 +65,7 @@ class SpotFragment(createTourViewModel: CreateTourViewModel) : AbstractStep() {
     }
 
     override fun onNext() {
+        createTourViewModel?.spots = list
         super.onNext()
     }
 

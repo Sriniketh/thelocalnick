@@ -12,21 +12,22 @@ import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
+import booboo.thelocalnick.CreateTour.CreateTourStepper
 import booboo.thelocalnick.R
-
-
-
-
-
 
 class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-
-
-        throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
+        when (item.itemId) {
+            R.id.nav_create_tour -> {
+                var intent: Intent = Intent(this, CreateTourStepper::class.java)
+                startActivity(intent)
+            }
+        }
+        return true
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tourlistingdrawer)
@@ -39,7 +40,7 @@ class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
         val guest = findViewById(R.id.guests)
         val date = findViewById(R.id.date)
 
-        location.setOnClickListener{
+        location.setOnClickListener {
             val ft = fragmentManager.beginTransaction()
             val prev = fragmentManager.findFragmentByTag("dialog")
             if (prev != null) {
@@ -52,7 +53,7 @@ class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
             newFragment.show(ft, "dialog")
         }
 
-        guest.setOnClickListener{
+        guest.setOnClickListener {
             val ft = fragmentManager.beginTransaction()
             val prev = fragmentManager.findFragmentByTag("dialog")
             if (prev != null) {
@@ -65,7 +66,7 @@ class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
             newFragment.show(ft, "dialog")
         }
 
-        date.setOnClickListener{
+        date.setOnClickListener {
             val ft = fragmentManager.beginTransaction()
             val prev = fragmentManager.findFragmentByTag("dialog")
             if (prev != null) {

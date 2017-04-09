@@ -10,7 +10,6 @@ import java.util.List;
 
 import booboo.thelocalnick.R;
 import booboo.thelocalnick.data.Schedule;
-import booboo.thelocalnick.data.Spot;
 
 class ScheduleRecyclerViewAdapter extends RecyclerView.Adapter<ScheduleViewHolder> {
     private List<Schedule> schedules;
