@@ -240,4 +240,5 @@
     <string name="create_tour_add_photos_button">Add Photos</string>
     <string name="schedule_card_view_from_hrs_mins">From %1$s Hrs %2$s Mins</string>
     <string name="schedule_card_view_to_hrs_mins">To %1$s Hrs %2$s Mins</string>
+
 </resources>

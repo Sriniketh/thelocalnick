@@ -49,5 +49,6 @@ class LocationFragment : DialogFragment(){
             val location = activity.findViewById(R.id.location) as TextView
             location.text = parent.getItemAtPosition(position) as String
         }
+
     }
 }

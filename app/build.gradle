@@ -94,11 +94,11 @@ dependencies {
     compile 'com.squareup.retrofit2:adapter-rxjava2:2.2.0'
     compile 'com.squareup.picasso:picasso:2.3.3'
     compile 'com.android.support:design:25.3.0'
-
     compile 'com.android.support:design:25.1.0'
     compile 'com.droidninja:filepicker:2.0.3'
     compile 'com.github.fcannizzaro:material-stepper:1.2.2'
     compile 'com.squareup.picasso:picasso:2.5.2'
+
 
 }
 

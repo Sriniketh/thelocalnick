@@ -3,6 +3,7 @@ package booboo.thelocalnick.tourListing
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v4.app.ActivityCompat
@@ -14,6 +15,12 @@ import android.view.MenuItem
 import android.widget.TextView
 import booboo.thelocalnick.CreateTour.CreateTourStepper
 import booboo.thelocalnick.R
+import java.io.IOException
+import java.util.*
+
+
+
+
 
 class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -28,6 +35,8 @@ class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
         return true
     }
 
+        //throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tourlistingdrawer)
@@ -40,7 +49,7 @@ class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
         val guest = findViewById(R.id.guests)
         val date = findViewById(R.id.date)
 
-        location.setOnClickListener {
+        location.setOnClickListener{
             val ft = fragmentManager.beginTransaction()
             val prev = fragmentManager.findFragmentByTag("dialog")
             if (prev != null) {
@@ -53,7 +62,7 @@ class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
             newFragment.show(ft, "dialog")
         }
 
-        guest.setOnClickListener {
+        guest.setOnClickListener{
             val ft = fragmentManager.beginTransaction()
             val prev = fragmentManager.findFragmentByTag("dialog")
             if (prev != null) {
@@ -66,7 +75,7 @@ class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
             newFragment.show(ft, "dialog")
         }
 
-        date.setOnClickListener {
+        date.setOnClickListener{
             val ft = fragmentManager.beginTransaction()
             val prev = fragmentManager.findFragmentByTag("dialog")
             if (prev != null) {
@@ -128,49 +137,49 @@ class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
         return ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
     }
 
-//    fun setLocationName() {
-//
-//        var cityName = "Not Found"
-////        if (checkPermission()) {
-////            ActivityCompat.requestPermissions(
-////                    this,
-////                    arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION),
-////                    PERMISSION_LOCATION_REQUEST_CODE)
-////        }
-//        val locationManager=getSystemService(LOCATION_SERVICE) as LocationManager
-//        val location=locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-//        val gcd = Geocoder(baseContext, Locale.getDefault())
-//        val lattitude = location.latitude
-//        val longitude = location.longitude
-//        try {
-//
-//            val addresses = gcd.getFromLocation(lattitude, longitude,
-//                    10)
-//
-//            for (adrs in addresses) {
-//                if (adrs != null) {
-//
-//                    val city = adrs.locality
-//                    if (city != null && city != "") {
-//                        cityName = city
-//                        println("city ::  " + cityName)
-//                    } else {
-//
-//                    }
-//                    // // you should also try with addresses.get(0).toSring();
-//
-//                }
-//
-//            }
-//        } catch (e: IOException) {
-//            e.printStackTrace()
-//        }
-//
-//        val textLocation = findViewById(R.id.location) as TextView
-//        textLocation.text = cityName
-//
-//
-//    }
 
+    fun setLocationName() {
+
+        var cityName = "Not Found"
+//        if (checkPermission()) {
+//            ActivityCompat.requestPermissions(
+//                    this,
+//                    arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION),
+//                    PERMISSION_LOCATION_REQUEST_CODE)
+//        }
+        val locationManager=getSystemService(LOCATION_SERVICE) as LocationManager
+        val location=locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        val gcd = Geocoder(baseContext, Locale.getDefault())
+        val lattitude = location.latitude
+        val longitude = location.longitude
+        try {
+
+            val addresses = gcd.getFromLocation(lattitude, longitude,
+                    10)
+
+            for (adrs in addresses) {
+                if (adrs != null) {
+
+                    val city = adrs.locality
+                    if (city != null && city != "") {
+                        cityName = city
+                        println("city ::  " + cityName)
+                    } else {
+
+                    }
+                    // // you should also try with addresses.get(0).toSring();
+
+                }
+
+            }
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+
+        val textLocation = findViewById(R.id.location) as TextView
+        textLocation.text = cityName
+
+
+    }
 
 }
