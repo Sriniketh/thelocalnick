@@ -99,7 +99,7 @@ dependencies {
     compile 'com.github.fcannizzaro:material-stepper:1.2.2'
     compile 'com.squareup.picasso:picasso:2.5.2'
 
-
+    compile 'com.stripe:stripe-android:4.0.0'
 }
 
 repositories {

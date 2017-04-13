@@ -241,4 +241,12 @@
     <string name="schedule_card_view_from_hrs_mins">From %1$s Hrs %2$s Mins</string>
     <string name="schedule_card_view_to_hrs_mins">To %1$s Hrs %2$s Mins</string>
 
+    <string name="stripe_test_secret_key">sk_test_FdAS3QkLGVgDA8u5JDKXaorn</string>
+    <string name="stripe_test_publishable_key">pk_test_wUVJ5A2GXqkLzzlo08HaBuZj</string>
+
+    <string name="strip_live_secret_key">sk_live_qrKZjShq2ujdLFkBqJbEx20w</string>
+    <string name="strip_live_publishable_key">pk_live_YMkT5kUHTNfaFOOqSRMquKj8</string>
+
+    <string name="success_message">Your payment was successful!\nYour booking is confirmed! You should receive an email with a confirmation shortly."</string>
+    <string name="failure_message">Your payment failed!\nPlease check card details or try with a different card."</string>
 </resources>
