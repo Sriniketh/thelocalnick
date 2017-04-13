@@ -12,6 +12,7 @@ import android.widget.LinearLayout
 import booboo.thelocalnick.R
 import booboo.thelocalnick.networkutils.HttpClient
 import booboo.thelocalnick.services.SearchService
+import booboo.thelocalnick.user.UserAccountScreen
 import booboo.thelocalnick.utils.BaseFragment
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -87,6 +88,9 @@ class TourListingContent : BaseFragment() {
             val args = Bundle()
             args.putInt(TourListingContent.DRAWER_ITEM, position)
             fragment.arguments = args
+            if (position == 3){
+                return UserAccountScreen()
+            }
             return fragment
         }
     }
