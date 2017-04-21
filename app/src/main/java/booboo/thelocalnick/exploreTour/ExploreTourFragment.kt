@@ -20,22 +20,22 @@ class ExploreTourFragment : BaseFragment() {
         val titleTextView = mainview.findViewById(R.id.tour_title) as TextView
         titleTextView.text = tour?.tourTitle
         val priceTextView = mainview.findViewById(R.id.tour_price) as TextView
-        priceTextView.text = '$'+tour?.price.toString()
+        priceTextView.text = '$'+tour?.totalCost.toString()
         val detailDescriptonTextView = mainview.findViewById(R.id.tour_description) as TextView
-        detailDescriptonTextView.text = tour?.description
+        detailDescriptonTextView.text = tour?.tourDescription
         val durationTextView = mainview.findViewById(R.id.tour_duration) as TextView
-        durationTextView.text = tour?.durationHours.toString() + " Hours"
+        durationTextView.text = tour?.tourDuration.toString() + " Hours"
         val guideNameTextView = mainview.findViewById(R.id.guide_name) as TextView
         guideNameTextView.text = tour?.guideName
         val guideImageView = mainview.findViewById(R.id.guide_image) as ImageView
         Picasso.with(activity)
-                .load(tour?.guideImage)
+                .load(tour!!.guideImage)
                 .error(R.drawable.gs1)
                 .into(guideImageView);
         mainview.visibility = View.VISIBLE
         val headerImage = mainview.findViewById(R.id.header_image) as ImageView
         Picasso.with(activity)
-                .load(tour?.tourImage)
+                .load(tour!!.tourPhoto[0])
                 .error(R.drawable.gs1)
                 .into(headerImage);
         mainview.visibility = View.VISIBLE
