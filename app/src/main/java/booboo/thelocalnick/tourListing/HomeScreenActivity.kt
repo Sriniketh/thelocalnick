@@ -24,7 +24,7 @@ import java.util.*
 
 class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
-
+    var drawer:DrawerLayout? = null
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_create -> {
@@ -37,7 +37,9 @@ class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
             R.id.nav_account -> {
                 selectItem(3)
             }
+
         }
+
         return true
     }
 
@@ -50,7 +52,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
     setSupportActionBar(toolbar)
 
 
-    val drawer = findViewById(R.id.drawer_layout) as DrawerLayout
+    drawer = findViewById(R.id.drawer_layout) as DrawerLayout
     val location = findViewById(R.id.location) as TextView
     val guest = findViewById(R.id.guests)
     val date = findViewById(R.id.date)
@@ -96,14 +98,16 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
     val toggle = android.support.v7.app.ActionBarDrawerToggle(
             this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
-    drawer.setDrawerListener(toggle)
+    drawer?.setDrawerListener(toggle)
     toggle.syncState()
 
     val navigationView = findViewById(R.id.nav_view) as NavigationView
     navigationView.setNavigationItemSelectedListener(this)
     navigationView.setCheckedItem(0);
     navigationView.getMenu().getItem(0).setChecked(true);
-    selectItem(0);
+    selectItem(0)
+
+
 
     //setLocationName()
 
@@ -134,8 +138,14 @@ private fun selectItem(position: Int) {
 
     val fragmentManager = fragmentManager
     val ft = fragmentManager.beginTransaction()
-    ft.replace(R.id.content_frame, fragment)
+    if (position!=0)
+        ft.replace(R.id.output, fragment)
+    else
+        ft.replace(R.id.content_frame,fragment)
+    ft.addToBackStack(null)
+    drawer?.closeDrawers()
     ft.commit()
+
 
 }
 

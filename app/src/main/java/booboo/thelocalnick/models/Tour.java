@@ -19,7 +19,7 @@ public class Tour {
     @SerializedName("dateNotAvailable")
     @Expose
     private List<String> dateNotAvailable = null;
-    @SerializedName("reviewCount")
+    @SerializedName("reviewcount")
     @Expose
     private Integer reviewCount;
     @SerializedName("totalCost")

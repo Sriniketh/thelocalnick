@@ -71,12 +71,12 @@ public class AmazonCognitoHelper {
     /**
      * Add your pool id here
      */
-    private static final String userPoolId = "us-west-2_qi9gL7F6h";
+    private static final String userPoolId = "us-west-2_wJBWhJVE5";
 
     /**
      * Add you app id
      */
-    private static final String clientId = "2qg2at4k67166m7egghflughek";
+    private static final String clientId = "7qjumnaops8s7qkbgauat1uaop";
 
     /**
      * App secret associated with your app id - if the App id does not have an associated App secret,

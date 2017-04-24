@@ -7,6 +7,6 @@ import retrofit2.http.Query
 
 
 interface SearchService {
-    @GET("/bins/17z9jz?")
+    @GET("/bins/hf20r?")
     fun getTours(@Query("location") location: String): Observable<Tours>
 }
