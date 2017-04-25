@@ -172,6 +172,9 @@ public class AmazonCognitoHelper {
             //Move to homepage
             //TO-DO
             confirmEmailViewModel.getConfirmEmailFragment().closeWaitDialog();
+            Intent i = new Intent(confirmEmailViewModel.getConfirmEmailFragment().getActivity(),HomeScreenActivity.class);
+            signInViewModel.getSignInFragment().getActivity().startActivity(i);
+
         }
 
         @Override
@@ -268,6 +271,7 @@ public class AmazonCognitoHelper {
         getPool().getUser(username).confirmSignUpInBackground(confirmCode, true, confHandler);
 
     }
+
 
     ForgotPasswordHandler forgotPasswordHandler = new ForgotPasswordHandler() {
         @Override

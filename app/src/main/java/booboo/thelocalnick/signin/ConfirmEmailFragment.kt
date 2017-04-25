@@ -12,10 +12,10 @@ class ConfirmEmailFragment : BaseFragment() {
     var binding:FragmentConfirmEmailBinding? = null
     override fun onCreateView(inflater: LayoutInflater?, parent: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, parent, savedInstanceState)
-        var binding: FragmentConfirmEmailBinding = FragmentConfirmEmailBinding.inflate(inflater, parent, false) as FragmentConfirmEmailBinding
+        binding = FragmentConfirmEmailBinding.inflate(inflater, parent, false) as FragmentConfirmEmailBinding
         var cevm = ConfirmEmailViewModel()
-        binding.cevm = cevm
+        binding?.cevm = cevm
         cevm.confirmEmailFragment = this
-        return binding.root
+        return binding?.root
     }
 }
