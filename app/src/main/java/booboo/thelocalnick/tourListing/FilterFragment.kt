@@ -5,22 +5,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import booboo.thelocalnick.R
-import booboo.thelocalnick.databinding.FragmentConfirmEmailBinding
-import booboo.thelocalnick.signin.ConfirmEmailViewModel
-import booboo.thelocalnick.utils.BaseFragment
-import android.content.Intent
-import android.support.design.widget.Snackbar
-import android.support.design.widget.FloatingActionButton
+import android.widget.AdapterView
+import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.ArrayAdapter
 import android.widget.Spinner
-import android.databinding.adapters.TextViewBindingAdapter.setText
-import android.widget.AdapterView
-import io.apptik.widget.MultiSlider
 import android.widget.TextView
+import booboo.thelocalnick.R
 import booboo.thelocalnick.models.Tour
+import io.apptik.widget.MultiSlider
 import java.util.*
-import android.widget.AdapterView.OnItemSelectedListener
 
 
 
@@ -60,7 +53,7 @@ class FilterFragment(tourListingContent: TourListingContent) : DialogFragment() 
                 if(spinnerSortBy.selectedItem.equals(s[1])){
 
                     Collections.sort(sortedList, object : Comparator<Tour> {
-                        override fun compare(x : Tour, y: Tour) = (x.rating.compareTo(y.rating)) as Int
+                        override fun compare(x : Tour, y: Tour) = (y.averageRating.compareTo(x.averageRating)) as Int
                     })
                     val tileGenerator = GenerateTourTile(activity,sortedList)
                     tourListing!!.recyclerView?.adapter = tileGenerator
@@ -70,7 +63,7 @@ class FilterFragment(tourListingContent: TourListingContent) : DialogFragment() 
 
                 if(spinnerSortBy.selectedItem.equals(s[3])){
                     Collections.sort(sortedList, object : Comparator<Tour> {
-                        override fun compare(x : Tour, y: Tour) = (x.price - y.price) as Int
+                        override fun compare(x : Tour, y: Tour) = (x.totalCost - y.totalCost) as Int
                     })
                     val tileGenerator = GenerateTourTile(activity,sortedList)
 
@@ -79,7 +72,7 @@ class FilterFragment(tourListingContent: TourListingContent) : DialogFragment() 
                 }
                 if(spinnerSortBy.selectedItem.equals(s[4])){
                     Collections.sort(sortedList, object : Comparator<Tour> {
-                        override fun compare(x : Tour, y: Tour) = (y.price - x.price) as Int
+                        override fun compare(x : Tour, y: Tour) = (y.totalCost - x.totalCost) as Int
                     })
                     val tileGenerator = GenerateTourTile(activity,sortedList)
 
