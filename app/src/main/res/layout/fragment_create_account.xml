@@ -96,6 +96,7 @@
                     android:background="@drawable/border"
                     android:padding="@dimen/edit_text_padding"
                     android:hint="Password"
+                    android:inputType="textPassword"
                     android:textColorHint="@color/textHint"
                     android:layout_marginBottom="@dimen/form_vertical_space"/>
                 <EditText
@@ -106,6 +107,7 @@
                     android:background="@drawable/border"
                     android:padding="@dimen/edit_text_padding"
                     android:hint="Confirm Password"
+                    android:inputType="textPassword"
                     android:textColorHint="@color/textHint"
                     android:layout_marginBottom="20dp"/>
                 <TextView

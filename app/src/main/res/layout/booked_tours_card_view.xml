@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <android.support.v7.widget.CardView
+
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:cardCornerRadius="6dp"
+        card_view:contentPadding="20dp"
+        card_view:cardElevation="10dp"
+        android:layout_margin="4dp"
+        >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/tour_tile_height"
+                    android:src="@drawable/gs3"
+                    android:id="@+id/booked_tours_image"
+                    android:scaleType="centerCrop"
+                    android:adjustViewBounds="true"
+                    android:paddingBottom="5dp"/>
+
+                <TextView
+                    android:text="Name of the Tour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/booked_tours_image"
+                    android:id="@+id/booked_tours_name"
+                    android:textAllCaps="true"
+                    android:textSize="15dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:text="Name of the Guide"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/booked_tours_name"
+                    android:id="@+id/booked_tours_guide"
+                    android:layout_marginTop="10dp" />
+
+                <TextView
+                    android:text="Brief Description of the Tour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/booked_tours_guide"
+                    android:id="@+id/booked_tours_desc"
+                    android:layout_marginTop="12dp"/>
+
+                <TextView
+                    android:text="Date of the Booked Tour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/booked_tours_desc"
+                    android:id="@+id/booked_tours_date"
+                    android:layout_marginTop="12dp"/>
+
+                <TextView
+                    android:text="Number of Guests"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/booked_tours_date"
+                    android:id="@+id/booked_tours_guests"
+                    android:layout_marginTop="12dp"/>
+
+                <TextView
+                    android:text="Cost of the Tour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/booked_tours_guests"
+                    android:id="@+id/booked_tours_cost"
+                    android:layout_marginTop="12dp"/>
+
+            </RelativeLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>

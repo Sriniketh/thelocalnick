@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -40,14 +41,13 @@
         <activity
             android:name=".backgroundcheck.BackgroundCheckActivity"
             android:theme="@style/NoActionBarTheme" />
-
-        <activity
-            android:name=".CreateTour.CreateTourStepper" />
+        <activity android:name=".CreateTour.CreateTourStepper" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
 
+        <activity android:name=".BookedTours.Booked_Tours"></activity>
     </application>
 
 </manifest>

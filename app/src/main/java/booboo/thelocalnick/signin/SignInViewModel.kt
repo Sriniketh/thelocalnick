@@ -2,15 +2,10 @@ package booboo.thelocalnick.signin
 
 
 import android.databinding.BaseObservable
-import android.util.Log
 import android.view.View
 import booboo.thelocalnick.AmazonCognito.AmazonCognitoHelper
 import booboo.thelocalnick.AmazonCognito.FacebookCognitoHelper
 import booboo.thelocalnick.R
-import booboo.thelocalnick.networkutils.HttpClient
-import booboo.thelocalnick.services.SearchService
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 
 
 class SignInViewModel():BaseObservable() {
@@ -49,6 +44,17 @@ class SignInViewModel():BaseObservable() {
 
     fun showConfirmationCodePage(){
         ConfirmEmailFragment().show(signInFragment?.activity?.fragmentManager)
+    }
+
+    fun onForgotAccountclicked(): View.OnClickListener {
+        return View.OnClickListener { view ->
+            if((signInFragment?.binding?.emailID?.text==null)||(signInFragment?.binding?.etPassword?.text==null)||signInFragment?.binding?.emailID?.text.toString()==""||signInFragment?.binding?.etPassword?.text.toString()=="") {
+                signInFragment?.showDialogMessage(signInFragment?.getString(R.string.sign_in_failed),signInFragment?.getString(R.string.username_password_empty))
+
+            }
+            else
+                ForgotPasswordFragment().show(signInFragment?.activity?.fragmentManager)
+        }
     }
 
 }

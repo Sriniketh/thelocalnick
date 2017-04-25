@@ -14,7 +14,7 @@ class ForgotPasswordViewModel: BaseObservable() {
     }
 
     fun validateInputs() {
-        if(forgotPasswordFragment?.binding?.etConfirmationCode?.text == null||forgotPasswordFragment?.binding?.etConfirmationCode?.text.toString().equals("")) {
+        if(forgotPasswordFragment?.binding?.etVerificationCode?.text == null||forgotPasswordFragment?.binding?.etVerificationCode?.text.toString().equals("")) {
             forgotPasswordFragment?.showDialogMessage(forgotPasswordFragment?.getString(R.string.sign_up_failed),forgotPasswordFragment?.getString(R.string.confirmation_code_empty))
         }
         else {

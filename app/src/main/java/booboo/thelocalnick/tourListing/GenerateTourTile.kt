@@ -31,18 +31,19 @@ class GenerateTourTile(private val context: Activity, private val itemList: List
 //
 //                }
         Picasso.with(context)
-                .load(itemList[position].tourImage)
+                .load(itemList[position].tourPhoto[0])
                 .error(R.drawable.gs1)
                 .into(holder.tripImage);
         //holder.setIsRecyclable(false);
-        holder.tripCost.text = "$ " + itemList[position].price!!
-        if (itemList[position].description.length > 40) {
-            holder.tripDesc.text = itemList[position].description.substring(0, 40) + "..."
+
+        holder.tripCost.text = "$ " + itemList[position].totalCost!!
+        if (itemList[position].tourDescription.length > 40) {
+            holder.tripDesc.text = itemList[position].tourDescription.substring(0, 40) + "..."
         } else {
-            holder.tripDesc.text = itemList[position].description
+            holder.tripDesc.text = itemList[position].tourDescription
         }
-        holder.tripRate.rating = (itemList[position].price as Int).toFloat()
-        holder.tripReviewCount.text = " (" + itemList[position].reviews + ")"
+        holder.tripRate.rating = itemList[position].averageRating
+        holder.tripReviewCount.text = " (" + itemList[position].reviewCount + ")"
         holder.tour = itemList[position]
 
     }

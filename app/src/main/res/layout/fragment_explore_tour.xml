@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="3"
     android:background="@color/white">
     <!-- TODO remove placeholer text -->
-    <ImageView
-        android:id="@+id/header_image"
+    <com.daimajia.slider.library.SliderLayout
+        android:id="@+id/onboardimageslider"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:src="@drawable/gettingstarted3"
-        android:scaleType="centerCrop"
-        android:layout_weight="2"/>
+        android:layout_height="200dp"
+        custom:auto_cycle="true"
+        custom:indicator_visibility="visible"
+        custom:pager_animation="Default"
+        custom:pager_animation_span="1100" />
+    <!--<ImageView-->
+        <!--android:id="@+id/header_image"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="500dp"-->
+        <!--android:src="@drawable/gettingstarted3"-->
+        <!--android:scaleType="centerCrop"-->
+        <!--android:layout_weight="2"/>-->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
