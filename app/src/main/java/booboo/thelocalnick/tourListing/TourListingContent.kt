@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import booboo.thelocalnick.R
+import booboo.thelocalnick.models.Tours
 import booboo.thelocalnick.networkutils.HttpClient
 import booboo.thelocalnick.services.SearchService
 import booboo.thelocalnick.user.UserAccountScreen
@@ -19,16 +20,16 @@ import io.reactivex.schedulers.Schedulers
 
 
 class TourListingContent : BaseFragment() {
-
+    var filterTour:Tours? = null
     private var gaggeredGridLayoutManager: GridLayoutManager? = null
-
+    var recyclerView:RecyclerView ?= null
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
 
         val rootView = inflater.inflate(R.layout.fragment_drawer, container, false)
         val i = 0
-
+        recyclerView = rootView.findViewById(R.id.recycler_view) as RecyclerView
         val lLayout = rootView.findViewById(R.id.tourlistgrid) as LinearLayout
         lLayout.setBackgroundColor(Color.parseColor("#ffffff"))
         val fragContext = activity
@@ -42,6 +43,7 @@ class TourListingContent : BaseFragment() {
                 .subscribe { tours ->
                     Log.e("Current search", tours.toString())
                     val tileGenerator = GenerateTourTile(fragContext,tours.tours)
+                    filterTour = tours
 
                     val recyclerView = rootView.findViewById(R.id.recycler_view) as RecyclerView
                     recyclerView.setHasFixedSize(true)

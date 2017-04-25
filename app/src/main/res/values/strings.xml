@@ -7,6 +7,20 @@
     <string name="onboardString1">Local Nick is the best</string>
     <string name="onboardString2">Be a part of our community of traverlers and \nenthusiastic local guides to explore the world.</string>
 
+    <string-array name="sort_by">
+        <item>None</item>
+        <item>Ratings</item>
+        <item>Distance</item>
+        <item>Price: Low to High</item>
+        <item>Price: High to Low</item>
+    </string-array>
+
+    <string-array name="duration">
+        <item>No restriction</item>
+        <item>Upto 8 hours</item>
+        <item>Upto 5 hours</item>
+        <item>Upto 3 hours</item>
+    </string-array>
 
     <string name="terms_of_use">Lorem ipsum dolor sit amet, qui altera signiferumque te,
         ne quo debet aliquam. Cu sea tacimates atomorum. Gloriatur complectitur vel te,

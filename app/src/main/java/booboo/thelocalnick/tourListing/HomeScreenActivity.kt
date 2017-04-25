@@ -24,6 +24,8 @@ import java.util.*
 
 class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
+    var tourListingContent : TourListingContent?=null
+
     var drawer:DrawerLayout? = null
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
@@ -50,7 +52,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
     setContentView(R.layout.activity_tourlistingdrawer)
     val toolbar = findViewById(R.id.toolbar) as Toolbar
     setSupportActionBar(toolbar)
-
+   
 
     drawer = findViewById(R.id.drawer_layout) as DrawerLayout
     val location = findViewById(R.id.location) as TextView
@@ -126,6 +128,13 @@ override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) 
     super.onActivityResult(requestCode, resultCode, data)
 }
 
+override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+    if(item?.itemId==R.id.filter_action){
+
+        FilterFragment(tourListingContent!!).show(fragmentManager,"dialog")
+    }
+    return super.onOptionsItemSelected(item)
+}
 override fun onCreateOptionsMenu(menu: Menu): Boolean {
     val inflater = menuInflater
     inflater.inflate(R.menu.more_popup, menu)
@@ -135,7 +144,7 @@ override fun onCreateOptionsMenu(menu: Menu): Boolean {
 private fun selectItem(position: Int) {
 
     val fragment = TourListingContent.newInstance(position)
-
+    tourListingContent = fragment as TourListingContent
     val fragmentManager = fragmentManager
     val ft = fragmentManager.beginTransaction()
     if (position!=0)
