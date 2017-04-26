@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fragment_explore_tour">
+<LinearLayout
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -16,12 +20,12 @@
         custom:pager_animation="Default"
         custom:pager_animation_span="1100" />
     <!--<ImageView-->
-        <!--android:id="@+id/header_image"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="500dp"-->
-        <!--android:src="@drawable/gettingstarted3"-->
-        <!--android:scaleType="centerCrop"-->
-        <!--android:layout_weight="2"/>-->
+    <!--android:id="@+id/header_image"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="500dp"-->
+    <!--android:src="@drawable/gettingstarted3"-->
+    <!--android:scaleType="centerCrop"-->
+    <!--android:layout_weight="2"/>-->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -98,7 +102,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:padding="@dimen/activity_horizontal_margin"
-                android:weightSum="4">
+                android:weightSum="5">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -118,12 +122,33 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/clock"
+                        android:id="@+id/pickTimeBtn" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Pick Time"
+                        android:textAlignment="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_weight="1">
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:src="@drawable/book"
+                        android:id="@+id/bookBtn"
                         android:layout_weight="1"/>
                     <TextView
                         android:layout_width="match_parent"
@@ -178,41 +203,7 @@
                     android:textColor="@color/primaryText"
                     android:text="@string/tour_summary_placeholder"/>
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="@dimen/activity_horizontal_margin"
-                android:weightSum="10">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/clock"
-                    android:layout_weight="9"/>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingLeft="@dimen/activity_horizontal_margin"
-                    android:layout_weight="1">
 
-                    <TextView
-                        android:id="@+id/tour_next_avaiable"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textColor="@color/primaryText"
-                        android:text="January 12, 2017 at 12.00pm"/>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="@color/secondaryText"
-                        android:text="Next available tour"/>
-                </LinearLayout>
-            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -317,3 +308,4 @@
     </ScrollView>
 
 </LinearLayout>
+</FrameLayout>
