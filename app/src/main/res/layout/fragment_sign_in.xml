@@ -52,6 +52,7 @@
                     android:id="@+id/emailID"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="text"
                     android:maxLines="1"
                     android:background="@drawable/border"
                     android:padding="@dimen/edit_text_padding"

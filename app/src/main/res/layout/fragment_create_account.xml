@@ -62,6 +62,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:maxLines="1"
+                    android:inputType="text"
                     android:background="@drawable/border"
                     android:padding="@dimen/edit_text_padding"
                     android:hint="Name"
@@ -75,6 +76,7 @@
                     android:background="@drawable/border"
                     android:padding="@dimen/edit_text_padding"
                     android:hint="Email"
+                    android:inputType="text"
                     android:textColorHint="@color/textHint"
                     android:layout_marginBottom="@dimen/form_vertical_space"/>
                 <EditText
