@@ -76,7 +76,7 @@
                         android:background="@color/colorPrimary"
                         android:textColor="@color/white"
                         android:drawableLeft="@drawable/ic_location_on_white_18px"
-                        android:text="Los Angeles"
+                        android:text="not found"
                         android:ellipsize="end"
                         android:gravity="left"
                         android:paddingLeft="16dp"
