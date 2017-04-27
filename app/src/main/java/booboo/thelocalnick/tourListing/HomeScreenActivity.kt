@@ -403,6 +403,7 @@ override fun onCreateOptionsMenu(menu: Menu): Boolean {
                     }
                     val textLocation = findViewById(R.id.location) as TextView
                     textLocation.text = cityName
+                    locationManager.removeUpdates(this)
                     //do something with Lat and Lng
                 }
 
