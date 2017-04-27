@@ -69,18 +69,18 @@
                     android:id="@+id/top_filters"
                     android:layout_below="@id/toolbar"
                     android:gravity="left">
+
                     <TextView
+                        android:id="@+id/location"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/location"
                         android:background="@color/colorPrimary"
-                        android:textColor="@color/white"
                         android:drawableLeft="@drawable/ic_location_on_white_18px"
-                        android:text="Los Angeles"
                         android:ellipsize="end"
                         android:gravity="left"
                         android:paddingLeft="16dp"
-                        />
+                        android:text="Los Angeles"
+                        android:textColor="@color/white" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

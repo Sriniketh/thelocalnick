@@ -18,12 +18,24 @@ import booboo.thelocalnick.CreateTour.CreateTourStepper
 import booboo.thelocalnick.R
 import java.io.IOException
 import java.util.*
+import com.google.android.gms.location.places.ui.PlaceAutocomplete
+import android.R.attr.data
+import android.util.Log
+import com.google.android.gms.location.places.Place
+import android.R.attr.data
+import com.google.android.gms.location.places.ui.PlaceAutocomplete.getStatus
+
+
+
+
+
+
 
 
 
 
 class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-
+    val PLACE_AUTOCOMPLETE_REQUEST_CODE = 1;
     var tourListingContent : TourListingContent?=null
 
     var drawer:DrawerLayout? = null
@@ -45,14 +57,13 @@ class HomeScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
         return true
     }
 
-
     //throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
 override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_tourlistingdrawer)
     val toolbar = findViewById(R.id.toolbar) as Toolbar
     setSupportActionBar(toolbar)
-   
+
 
     drawer = findViewById(R.id.drawer_layout) as DrawerLayout
     val location = findViewById(R.id.location) as TextView
@@ -60,7 +71,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
     val date = findViewById(R.id.date)
 
     location.setOnClickListener{
-        val ft = fragmentManager.beginTransaction()
+       /* val ft = fragmentManager.beginTransaction()
         val prev = fragmentManager.findFragmentByTag("dialog")
         if (prev != null) {
             ft.remove(prev)
@@ -69,7 +80,18 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
         // Create and show the dialog.
         val newFragment = LocationFragment()
-        newFragment.show(ft, "dialog")
+        newFragment.show(ft, "dialog")*/
+
+
+
+        try {
+            val intent = PlaceAutocomplete.IntentBuilder(PlaceAutocomplete.MODE_FULLSCREEN).build(this)
+            startActivityForResult(intent, PLACE_AUTOCOMPLETE_REQUEST_CODE);
+
+        } catch (e: Exception) {
+
+        }
+
     }
 
     guest.setOnClickListener{
@@ -126,6 +148,24 @@ override fun onCreate(savedInstanceState: Bundle?) {
 override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 
     super.onActivityResult(requestCode, resultCode, data)
+    if (requestCode == PLACE_AUTOCOMPLETE_REQUEST_CODE) {
+        if (resultCode == RESULT_OK) {
+            val place = PlaceAutocomplete.getPlace(this, data)
+            val location = findViewById(R.id.location) as TextView
+            if(place.name.length>12){
+                location.setText(place.name.toString().substring(0,11)+"...")
+            }
+            else{
+                location.setText(place.name.toString())
+            }
+
+        }
+        else if (resultCode == PlaceAutocomplete.RESULT_ERROR) {
+            val status = PlaceAutocomplete.getStatus(this, data)
+            /*Log.i(status.getStatusMessage());*/
+        }
+
+    }
 }
 
 override fun onOptionsItemSelected(item: MenuItem?): Boolean {
