@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import android.widget.TextView
 import booboo.thelocalnick.R
 import booboo.thelocalnick.models.Tours
 import booboo.thelocalnick.networkutils.HttpClient
@@ -36,7 +37,8 @@ class TourListingContent : BaseFragment() {
 
 
         val searchService = HttpClient().getClient("http://api.myjson.com").create(SearchService::class.java)
-        val searchResult = searchService.getTours("Los Angeles")
+        val location = (activity.findViewById(R.id.location) as TextView).text
+        val searchResult = searchService.getTours(location as String)
 
         searchResult.subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
